@@ -1,0 +1,126 @@
+
+      .homeBtn{
+        margin-top: 7vh;
+      }
+      .center{
+          margin: auto;
+          margin-top: 4vh;
+          margin-bottom: 2vh;
+      }
+
+      .style_area{
+        border-radius: 20px;
+        border-style: solid;
+        border-color: transparent;
+      }
+
+      .bg-grey{
+          background-color: whitesmoke;
+      }
+
+      .bg-white{
+          background-color: white;
+      }
+
+      .form_header{
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+          position: absolute;
+          bottom: 0px;
+          top: 0px;
+          left: 0px;
+          right: 0px;
+          background-color: black;
+          opacity: .6;
+      }
+
+      .text{
+        font-weight:100;
+        font-size:20px;
+        text-transform: capitalize;
+      }
+
+      .form_header_text{
+        margin: auto;
+        font-weight: bold;
+        font-size: 30px;
+        opacity: 1;
+        text-transform: uppercase;
+        color: white;
+        padding-top: 12vw;
+      }
+
+      .form_bg_img{
+          /* opacity: .4; */
+          width: 100%;
+          height: 33vw;
+          /*background-image: url('images/FB_IMG_15049960595959407.jpg');*/
+          background-position: center;
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+
+      .form-area{
+        padding: 5px;
+        border-color: transparent;
+      }
+
+      .form_tab{
+          display: none;
+      }
+
+      .active_tab{
+          display: block;
+      }
+
+      .form-input-error{
+          color: red;
+      }
+
+      .hide{
+          display: none;
+      }
+      
+      
+    
+    /*------------------------------------------------------------------
+    [ Input ]*/
+    
+    .wrap-input100 {
+      width: 100%;
+      position: relative;
+      border-bottom: 1px solid #b2b2b2;
+    }
+    
+    
+    .form-control {
+      border-top:0;
+      border-right:0;
+      border-left:0;
+      border-bottom: 1px solid #b2b2b2;
+    }
+    
+    .label-input100 {
+      font-family: Poppins-Regular;
+      font-size: 15px;
+      color: #808080;
+      line-height: 1.2;
+      text-align: right;
+    
+      position: absolute;
+      top: 14px;
+      left: -105px;
+      width: 80px;
+    
+    }
+
+
+      .input-error{
+          border-color: rgb(239, 154, 154);
+      }
+
+      .btn{
+          padding-left: 15px;
+          padding-right: 15px;
+          border-radius: 20px;
+      }
