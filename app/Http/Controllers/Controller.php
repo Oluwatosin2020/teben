@@ -9,6 +9,7 @@ use App\Transaction;
 use App\User;
 use App\Subject;
 use App\PayReceipt;
+use App\Traits\Constants;
 use Carbon\Carbon;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -17,7 +18,7 @@ use Illuminate\Routing\Controller as BaseController;
 
 class Controller extends BaseController
 {
-    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests , Constants;
 
     public function UUid(){
         $id = rand(10000000,999999999);
@@ -28,35 +29,6 @@ class Controller extends BaseController
         else{
             $this->UUid();
         }
-    }
-
-    public function subjects(){
-        return $data = [
-            'Basic Science',
-            'Basic Technology',
-            'Biology',
-            'Book Keeping/Account',
-            'Business Studies/Office Practice',
-            'Chemistry',
-            'Commerce',
-            'Computer',
-            'Creative/Fine Arts',
-            'Economics',
-            'English language',
-            'Fine Art',
-            'Further Mathematics',
-            'Geography',
-            'Health Science',
-            'I.P.C',
-            'Islamic Studies',
-            'Literature in English',
-            'Mathematics',
-            'Physical Health Education',
-            'Physics',
-            'Social Studies',
-            'Technical Drawing',
-            'Quantitative/Verbal Reasoning',
-        ];
     }
 
     public function admin(){

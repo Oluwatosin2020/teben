@@ -44,7 +44,7 @@ class CouponController extends Controller
                 'code' => $this->couponCode(),
             ]);
         }
-        Session ::flash('notify_msg','Coupons added successfully!');
+        Session::flash('notify_msg','Coupons added successfully!');
         return redirect()->back();
     }
 

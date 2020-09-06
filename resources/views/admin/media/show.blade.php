@@ -6,9 +6,9 @@
     <div class="main-content">
         <section class="section">
           <div class="section-body">
-              
-             
-    
+
+
+
                 <div class="card">
                   <div class="card-header">
                     <h4>Media Information
@@ -16,7 +16,7 @@
                     </h4>
                   </div>
                   <div class="card-body">
-                      
+
                        <div class="row">
 						@if(Session::has('success'))
 							<div class="alert alert-success  btn-block">
@@ -31,12 +31,12 @@
 							</div>
 						@endif
 					</div>
-    
-                    
+
+
 
                         <div class="card-header row mb-3">
                             <div class="col-md-6 text-center">
-                                <img src="{{asset('public/media_cover_images'.'/'.$media->image)}}" alt="Cover Image" width="100%" height="100px"/>
+                                <img src="{{ getFileFromStorage($media->getCoverImage() , 'storage') }}" alt="Cover Image" width="100%" height="100px"/>
                             </div>
                             <div class="col-md-6 mt-2 mt-md-3">
                                 <div class="h4"><b>{{$media->title}}</b></div>
@@ -47,11 +47,17 @@
                                     <b>File Size:</b> {{$media->size}}
                                 </div>
                                 <div class="mb-2">
-                                    <b>Level:</b> {{$media->level}}
+                                    <b>Level:</b> {{ getLevels($media->level) ?? $media->level}}
                                 </div>
-                                
                                 <div class="mb-2">
-                                    <b>Subject:</b> {{$media->subject}}
+                                    <b>Class:</b> {{  $media->klass->name ?? ''}}
+                                </div>
+                                <div class="mb-2">
+                                    <b>Term:</b> {{ getTerms($media->term)}}
+                                </div>
+
+                                <div class="mb-2">
+                                    <b>Subject:</b> {{$media->subject->name ?? $media->subject}}
                                 </div>
                                 <div class="mb-3">
                                     <b>Price:</b> NGN {{$media->price}}
@@ -61,12 +67,12 @@
                                         @if($media->attachment_type == 'Video')
                                             <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#watchVideo">Watch</a>
                                         @endif
-                                        <input type="hidden" name="filename" value="{{$media->attachment}}" required>
-                                        <input type="hidden" name="name" value="{{$media->title}}" required>
+                                        <input type="hidden" name="filename" value="{{ $media->getAttachment() }}" required>
+                                        <input type="hidden" name="name" value="{{ $media->title }}" required>
                                         <button type="submit" class="btn btn-sm btn-primary" >Download</button>
                                     </form>
                                 </div>
-                                
+
                             </div>
                             <div class="mt-3 offset-10 col-2">
                                 <form action="{{ route('media.destroy',$media->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">@csrf @method('delete')
@@ -75,8 +81,8 @@
                                 </form>
                             </div>
                         </div>
-                          
-                    
+
+
 
                   </div>
                   </div>
@@ -121,13 +127,13 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label>Level</label>
                                                             <select class="form-control" name="level" style="height:45px" aria-required="true">
                                                                 <option disabled selected>Select One</option>
-                                                                @foreach($levels as $level)
-                                                                    <option value="{{$level}}" {{$media->level == $level ? 'selected' : ''}}>{{$level}}</option>
+                                                                @foreach($levels as $key => $value)
+                                                                    <option value="{{$key}}" {{$media->level == $key ? 'selected' : ''}}>{{$value}}</option>
                                                                 @endforeach
                                                             </select>
                                                             @error('level')
@@ -136,9 +142,42 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
-                                                      
-                                                        
+
+                                                        <div class="form-group">
+                                                            <label>Class</label>
+                                                            <select class="form-control" name="klass_id" style="height:45px" aria-required="true">
+                                                                <option disabled selected>Select One</option>
+                                                                @foreach($klasses as $klass)
+                                                                <option value="{{$klass->id}}" {{$media->klass_id == $klass->id ? 'selected' : ''}}>{{$klass->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('klass_id')
+                                                                <p class="" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </p>
+                                                            @enderror
+                                                        </div>
+
+
+                                                        <div class="form-group">
+                                                            <label>Term</label>
+                                                            <select class="form-control" name="term" style="height:45px" aria-required="true">
+                                                                <option disabled selected>Select One</option>
+                                                                @foreach($terms as $key => $value)
+                                                                <option value="{{$key}}" {{$media->term == $key ? 'selected' : ''}}>{{$value}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('term')
+                                                                <p class="" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </p>
+                                                            @enderror
+                                                        </div>
+
+
+
+
+
                                                         <div class="form-group">
                                                             <label>Subject</label>
                                                             <select class="form-control" name="subject" style="height:45px" aria-required="true">
@@ -153,8 +192,8 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
-                                                       
+
+
                                                     </div>
                                                     <div class="col-md-6">
                                                          <div class="form-group">
@@ -166,7 +205,7 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label>Download Price</label>
                                                             <input type="number" class="form-control" name="price" placeholder="Price per download" value="{{$media->price}}" required />
@@ -176,7 +215,7 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label>Book or Video</label>
                                                             <input type="file" class="form-control" name="attachment"  />
@@ -187,7 +226,7 @@
                                                             @enderror
                                                             <p>Only upload Pdf , Docx , MP3 , Mp4 files not greater than 200MB</p>
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label>Status</label>
                                                             <select class="form-control" name="status" style="height:45px" aria-required="true">
@@ -196,14 +235,14 @@
                                                                 <option value="Hidden"  {{$media->status == 'Hidden' ? 'selected' : ''}}>Hidden</option>
                                                             </select>
                                                         </div>
-                                                    
-                                                    
-                                                        
+
+
+
                                                     </div>
-                                                    
+
                                                 </div>
-                                                    
-                                                    
+
+
                                                     <button type="submit" class="btn btn-sm btn-primary">Proceed</button>
                                                 </form>
                                             </div>

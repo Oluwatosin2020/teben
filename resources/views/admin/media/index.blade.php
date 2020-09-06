@@ -6,8 +6,8 @@
     <div class="main-content">
         <section class="section">
           <div class="section-body">
-              
-             
+
+
                 <div class="card">
                   <div class="card-header">
                     <h4>Manage Books and Videos
@@ -15,7 +15,7 @@
                     </h4>
                   </div>
                   <div class="card-body">
-                       <div class="row"> 
+                       <div class="row">
 						@if(Session::has('success'))
 							<div class="alert alert-success  btn-block">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -29,7 +29,7 @@
 							</div>
 						@endif
 					</div>
-    
+
                     <div class="table-responsive">
                       <table class="table table-striped" id="table-1">
                         <thead>
@@ -56,18 +56,18 @@
                             <td class="align-middle">{{$media->size}}</td>
                             <td class="align-middle">NGN {{$media->price}}</td>
                             <td class="align-middle">{{$media->status}}</td>
-                            
+
                             <td>
                                 <a href="{{ route('media.show',$media->id )}}" class="btn btn-success btn-sm" >View</a>
                             </td>
                           </tr>
 
-                
 
-                         
+
+
                     <!-- Vertically centered modal end -->
-                    
-                    
+
+
                                  <!--Info Modal -->
                                  <div class="modal fade bd-example-modal-md" id="viewmodal-{{$media->id}}">
                                     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
@@ -78,15 +78,15 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p><b>Created at:</b> {{ date('D, M d Y h:i:a',strtotime($media->created_at)) }}</p>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                         
+
                     <!-- Vertically centered modal end -->
-                    
+
                         @endforeach
                         </tbody>
                       </table>
@@ -103,7 +103,7 @@
                                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                
+
                                                 <form method="post" action="{{ route('media.store') }}" enctype="multipart/form-data">@csrf
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -116,13 +116,13 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label>Level</label>
                                                             <select class="form-control" name="level" style="height:45px" aria-required="true">
                                                                 <option disabled selected>Select One</option>
-                                                                @foreach($levels as $level)
-                                                                    <option value="{{$level}}">{{$level}}</option>
+                                                                @foreach($levels as $key => $value)
+                                                                    <option value="{{$key}}">{{$value}}</option>
                                                                 @endforeach
                                                             </select>
                                                             @error('level')
@@ -131,15 +131,46 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
-                                                    
-                                                        
+
+                                                        <div class="form-group">
+                                                            <label>Class</label>
+                                                            <select class="form-control" name="klass_id" style="height:45px" aria-required="true">
+                                                                <option disabled selected>Select One</option>
+                                                                @foreach($klasses as $klass)
+                                                                <option value="{{$klass->id}}">{{$klass->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('klass_id')
+                                                                <p class="" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </p>
+                                                            @enderror
+                                                        </div>
+
+
+                                                        <div class="form-group">
+                                                            <label>Term</label>
+                                                            <select class="form-control" name="term" style="height:45px" aria-required="true">
+                                                                <option disabled selected>Select One</option>
+                                                                @foreach($terms as $key => $value)
+                                                                <option value="{{$key}}">{{$value}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                            @error('term')
+                                                                <p class="" role="alert">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </p>
+                                                            @enderror
+                                                        </div>
+
+
+
                                                         <div class="form-group">
                                                             <label>Subject</label>
                                                             <select class="form-control" name="subject" style="height:45px" aria-required="true">
                                                                 <option disabled selected>Select One</option>
                                                                 @foreach($subjects as $subject)
-                                                                <option value="{{$subject->name}}">{{$subject->name}}</option>
+                                                                <option value="{{$subject->id}}">{{$subject->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                             @error('subject')
@@ -148,8 +179,15 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
-                                                         <div class="form-group">
+
+
+
+
+
+                                                    </div>
+                                                    <div class="col-md-6">
+
+                                                        <div class="form-group">
                                                             <label>Download Price</label>
                                                             <input type="number" class="form-control" name="price" placeholder="Price per download" required />
                                                             @error('price')
@@ -158,11 +196,7 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
-                                                        
-                                                       
-                                                    </div>
-                                                    <div class="col-md-6">
+
                                                          <div class="form-group">
                                                             <label>Cover Image</label>
                                                             <input type="file" class="form-control" name="image" required />
@@ -172,8 +206,8 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-                                                        
-                                                       
+
+
                                                         <div class="form-group">
                                                             <label>Book or Video</label>
                                                             <input type="file" class="form-control" name="attachment" required />
@@ -184,7 +218,7 @@
                                                             @enderror
                                                             <p>Only upload Pdf , Docx , Mp4 files not greater than 200MB</p>
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label>Status</label>
                                                             <select class="form-control" name="status" style="height:45px" aria-required="true">
@@ -193,16 +227,16 @@
                                                                 <option value="Hidden">Hidden</option>
                                                             </select>
                                                         </div>
-                                                    
-                                                    
-                                                        
+
+
+
                                                     </div>
-                                                    
+
                                                 </div>
-                                                    
-                                                    
-                                                    
-                                                    
+
+
+
+
                                                     <button type="submit" class="btn btn-sm btn-primary">Proceed</button>
                                                 </form>
                                             </div>
