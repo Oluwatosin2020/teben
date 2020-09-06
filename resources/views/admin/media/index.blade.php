@@ -50,15 +50,15 @@
                           <tr>
                             <td class="align-middle text-center"><img src="{{asset('public/media_cover_images'.'/'.$media->image)}}" alt="Cover Image" width="50px"/></td>
                             <td class="align-middle">{{$media->title}}</td>
-                            <td class="align-middle">{{$media->level}}</td>
-                            <td class="align-middle">{{$media->subject}}</td>
+                            <td class="align-middle">{{ getLevels($media->level) ?? $media->level}}</td>
+                            <td class="align-middle">{{$media->subject->name ?? ''}}</td>
                             <td class="align-middle">{{$media->attachment_type}}</td>
                             <td class="align-middle">{{$media->size}}</td>
-                            <td class="align-middle">NGN {{$media->price}}</td>
+                            <td class="align-middle">NGN{{$media->price}}</td>
                             <td class="align-middle">{{$media->status}}</td>
 
                             <td>
-                                <a href="{{ route('media.show',$media->id )}}" class="btn btn-success btn-sm" >View</a>
+                                <a href="{{ route('media.show',$media->id )}}" class="btn btn-success btn-xs" >View</a>
                             </td>
                           </tr>
 

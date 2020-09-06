@@ -64,7 +64,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="{{ url('/') }}"><img class="logo" src="{{ $logo_img }}" alt="Logo" title="Logo"/></a> <span class="logo-text"> Dashboard </span>
+                    <a href="{{ url('/') }}"><img class="logo" src="{{ $logo_img }}" alt="Logo" title="Logo" height="100" width="100"/></a> <span class="logo-text"> Dashboard </span>
                 </div>
             </div>
             <div class="main-menu">
