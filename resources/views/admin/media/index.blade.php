@@ -48,7 +48,7 @@
                         <tbody>
                         @foreach($medias as $media)
                           <tr>
-                            <td class="align-middle text-center"><img src="{{asset('public/media_cover_images'.'/'.$media->image)}}" alt="Cover Image" width="50px"/></td>
+                            <td class="align-middle text-center"><img src="{{ getFileFromStorage($media->getCoverImage() , 'storage')  }}" alt="Cover Image" width="50px"/></td>
                             <td class="align-middle">{{$media->title}}</td>
                             <td class="align-middle">{{ getLevels($media->level) ?? $media->level}}</td>
                             <td class="align-middle">{{$media->subject->name ?? ''}}</td>

@@ -6,7 +6,7 @@
     <div class="main-content">
         <section class="section">
           <div class="section-body">
-    
+
                 <div class="card">
                   <div class="card-header">
                     <h4>Download Books and Videos
@@ -29,7 +29,7 @@
 							</div>
 						@endif
 					</div>
-    
+
                       <form method="get" action="{{ route('search_media') }}">
                         <div class="row">
                           <div class="col-md-4">
@@ -37,12 +37,12 @@
                                 <label>Level</label>
                                 <select class="form-control" name="level" style="height:45px" required>
                                     <option disabled selected>Select Level</option>
-                                    @foreach($levels as $level)
-                                        <option value="{{$level}}">{{$level}}</option>
+                                    @foreach($levels as $key => $value)
+                                        <option value="{{$key}}">{{$value}}</option>
                                     @endforeach
                                 </select>
                             </div>
-                                                        
+
                           </div>
                           <div class="col-md-4">
                               <div class="form-group">
@@ -50,7 +50,7 @@
                                 <select class="form-control" name="subject" style="height:45px" required>
                                     <option disabled selected>Select Subject</option>
                                     @foreach($subjects as $subject)
-                                    <option value="{{$subject->name}}">{{$subject->name}}</option>
+                                    <option value="{{$subject->id}}">{{$subject->name}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -59,24 +59,24 @@
                               <div class="form-group">
                                 <label>Title</label>
                                 <input type="text" name="title" class="form-control" placeholder="Enter book or video title here..(optional)" />
-                                
+
                             </div>
                           </div>
-                          
+
                         </div>
                         @csrf
                         <div class="text-center mb-5">
                               <button type="submit" class="btn btn-sm btn-success">
-                                  Search 
+                                  Search
                               </button>
                           </div>
                     </form>
-                    
+
                         @foreach($medias as $media)
-                        
+
                         <div class="card-header row mb-3">
                             <div class="col-md-4 text-center">
-                                <img src="{{asset('public/media_cover_images'.'/'.$media->image)}}" alt="Cover Image" width="100%" height="100px"/>
+                                <img src="{{ getFileFromStorage($media->getCoverImage() , 'storage') }}" alt="Cover Image" width="100%" height="100px"/>
                             </div>
                             <div class="col-md-8 mt-2 mt-md-3">
                                 <div class="h4"><b>{{$media->title}}</b></div>
@@ -98,25 +98,24 @@
                                 <div class="">
                                     <form action="{{ route('user_download_attachment') }}" method="post" onsubmit="return confirm('Downloading may cost you money! Are you sure you want to download this item?');">@csrf
                                         <input type="hidden" name="media_id" value="{{$media->id}}" required>
-                                        <input type="hidden" name="name" value="{{$media->title}}" required>
                                         <button type="submit" class="btn btn-sm btn-primary" >Download</button>
                                     </form>
                                 </div>
 
                             </div>
                         </div>
-                          
-                    
+
+
                         @endforeach
-                        
+
                         <div class="text-center">
                             {!! $medias->render() !!}
                         </div>
-                       
+
                   </div>
                 </div>
               </div>
-           
+
         </section>
     </div>
 

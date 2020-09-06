@@ -99,7 +99,7 @@
                         </div>
                         <div class="modal-body row">
                             <video class="col-12" width="100%" height="320" controls>
-                                    <source src="{{ route('watch_video_attachment',$media->attachment) }}" type="video/mp4">
+                                    <source src="{{ getFileFromStorage($media->getAttachment(), 'storage') }}" type="video/mp4">
                                     Your browser does not support the video tag.
                             </video>
                         </div>

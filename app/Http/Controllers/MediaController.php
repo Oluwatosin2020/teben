@@ -28,7 +28,7 @@ class MediaController extends Controller
 
     public function index()
     {
-        $medias = Media::orderby('title','desc')->paginate(50);
+        $medias = Media::orderby('title','asc')->paginate(50);
         $subjects = Subject::orderby('name','asc')->get();
         $levels = getLevels();
         $klasses = Klass::get();
@@ -293,18 +293,16 @@ class MediaController extends Controller
     }
 
     public function userDownloadAttachment(Request $request){
-        // dd($request->all());
         $data = $request->validate([
             'media_id' => 'required',
-            'name' => 'required'
         ]);
 
         // dd($data);
 
-        $media = Media::findorfail($data['media_id']);
+        $media = Media::findorfail(decrypt($data['media_id']));
 
-        $name = $data['name'];
-        $filename = $media->attachment;
+        $name = $media->title;
+        $filename = $media->getAttachment();
         $amt = $media->price;
 
         $user = Auth::user();
@@ -312,8 +310,7 @@ class MediaController extends Controller
         if($user->wallet >= $amt){
 
 
-            $path = $this->mediaPath().$filename;
-            $exists = Storage::disk('local')->exists($path);
+            $exists = Storage::disk('local')->exists($filename);
             if($exists){
 
                 $user->wallet-=$amt;
@@ -338,15 +335,9 @@ class MediaController extends Controller
                 $notification->save();
 
 
-                $type = Storage::mimeType($path);
-                $ext = explode('.',$filename)[1];
-                // dd($ext);
-                $headers = [
-                    'Content-Type' => $type,
-                ];
 
                 Session::flash('success_msg','Downloading in progress...');
-                return Storage::download($path,$name.'.'.$ext,$headers);
+                return downloadFileFromPrivateStorage($filename , $name);
             }
 
             Session::flash('error_msg','Download unsuccessful!');
