@@ -10,7 +10,7 @@
     <div class="offset-md-2 col-md-8 bg-white style_area">
         <div class="row ">
             <div class="col-md-6">
-                <div class="form_bg_img" style="background-image: url({{ asset('public/web/images/bg_3.jpg') }});"></div>
+                <div class="form_bg_img" style="background-image: url({{ my_asset('web/images/bg_3.jpg') }});"></div>
                 <div class="form_header">
                     <div class="form_header_text text-center">
                     <p class="d-none d-md-block into text">Welcome on board!</p>
@@ -57,7 +57,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            
+
                              <div class="form-group">
                                 <label>Email</label>
                                 <input class="form-control" type="email" name="email" placeholder="Enter your email (optional)" value="{{ old('email') }}" aria-required="false" >
@@ -68,7 +68,7 @@
                                 @enderror
                             </div>
                         </div>
-                        
+
                         <div class="form_tab " id="tab_2" form-tab="2" tabindex="2">
                             <div class="form-group">
                                 <label>State</label>
@@ -149,8 +149,8 @@
                                 <a href="{{route('login')}}">Already have an account?</a>
                             </div>
                         </div>
-                        
-                        
+
+
                     </form>
                 </div>
             </div>

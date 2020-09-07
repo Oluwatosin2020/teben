@@ -5,16 +5,16 @@
 @endsection
 
 @section('content')
-    
-		
+
+
 		<section class="">
 			<div class="container">
 			    <h3 class="text-center mt-3"><b>Verified Teben Tutor</b> </h3>
 				<div class="row mt-3">
 					<div class="offset-md-2 col-md-4">
-						<img src="{{ asset('public/avatar_images/'.$teacher->avatar) }}" class="img img-fluid"/>
+						<img src="{{ $teacher->getAvatar() }}" class="img img-fluid"/>
 					</div>
-					
+
 					<div class="col-md-4">
 					    <div class="text pt-3 text-center">
 					        @php($major = App\Subject::where('id',$teacher->teacher->major)->first())
@@ -28,7 +28,7 @@
 									<p style="margin:0;padding:0">Lessons Completed : {{ $teacher->teacher->jobs }}</p>
 	              				</div>
 	              				<p class="mt-3">
-	              				    <img src="{{ Storage::url('app/public/'.$teacher->uuid.'.png') }}" alt="" style="width: 30%"/>
+	              				    <img src="{{ $teacher->getUUID() }}" alt="" style="width: 30%"/>
 	              				</p>
 							</div>
 					</div>

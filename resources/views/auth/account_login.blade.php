@@ -16,7 +16,7 @@
     <div class="offset-md-2 col-md-8 bg-white style_area">
         <div class="row ">
             <div class="col-md-6">
-                <div class="form_bg_img" style="background-image: url({{ asset('public/web/images/bg_3.jpg') }});"></div>
+                <div class="form_bg_img" style="background-image: url({{ my_asset('web/images/bg_3.jpg') }});"></div>
                 <div class="form_header">
                     <div class="form_header_text text-center">
                     <p class="d-none d-md-block into text">Hey there, your videos await you!</p>

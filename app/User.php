@@ -43,7 +43,7 @@ class User extends Authenticatable //implements MustVerifyEmail
     public function teacher(){
         return $this->hasOne(Teacher::class);
     }
-    
+
     public function agent(){
         return $this->hasOne(Agent::class);
     }
@@ -65,5 +65,16 @@ class User extends Authenticatable //implements MustVerifyEmail
             '0' => 'Disabled',
             '1' => 'Active',
         ][$status];
+    }
+
+    public function getAvatar(){
+        if(!empty($this->avatar)){
+           return route('read_file' , encrypt($this->avatar));
+        }
+        return my_asset('user.png');
+    }
+
+    public function getUUID(){
+        return $this->uuid.'.png';
     }
 }

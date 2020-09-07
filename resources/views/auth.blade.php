@@ -7,13 +7,13 @@
     <meta name="description" content="Teben Tutors">
     <meta name="keywords" content="teen tutor,tutor jobs, teben,tebentutors,teben tutors,tutors,lessons,home lesson,private lesson, children, education, teachers, hire teacher,teben login">
     <meta name="author" content="Confidence Ugolo">
-    
+
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('public/web/css/open-iconic-bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/web/css/animate.css') }}">
-    
+
     <link rel="stylesheet" href="{{ asset('public/web/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/web/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/web/css/magnific-popup.css') }}">
@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="{{ asset('public/web/css/aos.css') }}">
 
     <link rel="stylesheet" href="{{ asset('public/web/css/ionicons.min.css') }}">
-    
+
     <link rel="stylesheet" href="{{ asset('public/web/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('public/web/css/icomoon.css') }}">
     <link rel="stylesheet" href="{{ asset('public/web/css/style.css') }}">
-    <link rel="shortcut icon" href="{{ asset('public/logo.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ $log_img }}" type="image/x-icon">
     <style>
         .logo{
             width:80px;
@@ -35,7 +35,7 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
 	    <div class="container d-flex align-items-center">
-	    	<a class="navbar-brand" href="{{ url('/') }}"><img class="logo" src="{{ asset('public/logo.png') }}" alt="Logo" title="Logo" style="width:40px;height:50px"/></a>
+	    	<a class="navbar-brand" href="{{ url('/') }}"><img class="logo" src="{{ $log_img }}" alt="Logo" title="Logo" style="width:40px;height:50px"/></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="oi oi-menu"></span> Menu
 	      </button>
@@ -55,10 +55,10 @@
 	    </div>
 	  </nav>
     <!-- END nav -->
-    
+
     @yield('content')
 
-		
+
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -80,6 +80,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="{{ asset('public/web/js/google-map.js') }}"></script>
   <script src="{{ asset('public/web/js/main.js') }}"></script>
-    
+
   </body>
 </html>

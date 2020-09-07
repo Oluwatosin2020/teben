@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ asset('public/web/images/bg_2.jpg') }});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ my_asset('web/images/bg_2.jpg') }});">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -16,7 +16,7 @@
         </div>
       </div>
     </section>
-		
+
 		<section class="ftco-section ftco-no-pb">
 			<div class="container">
 				<div class="row">
@@ -25,7 +25,7 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url({{ asset('public/avatar_images/'.$teacher->user->avatar) }});"></div>
+								<div class="img align-self-stretch" style="background-image: url({{ $teacher->user->getAvatar() }});"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3> <a href="{{route('teacherinfo',$teacher->user->uuid)}}">{{ $teacher->user->name }}</a></h3>
