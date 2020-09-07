@@ -94,6 +94,9 @@
                   </div>
                 </div>
               </div>
+              <div class="text-center">
+                  {!! $medias->links() !!}
+              </div>
             <!--Add coupon Modal -->
                                  <div class="modal fade bd-example-modal-lg" id="addcoupon">
                                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
