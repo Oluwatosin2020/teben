@@ -29,6 +29,14 @@ Route::get('/lgas/{state}', 'WebController@lgas')->name('lgas');
 Route::get('/my-notifications', 'HomeController@mynotifications');
 
 
+Route::namespace('Account')->prefix('account')->as('account.')->group(function(){
+    Route::get('login', 'HomeController@login')->name('login');
+    Route::post('auth', 'HomeController@auth')->name('auth');
+    Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
+    Route::get('download', 'HomeController@download')->name('download');
+});
+
+
 Auth::routes(['verify' => true]);
 
 Route::get('/send/email', 'HomeController@mail');
@@ -36,7 +44,6 @@ Route::get('/send/email', 'HomeController@mail');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-// Route::group(['middleware'=> ['completeProfile']],function(){
 
 Route::get('read_file/{file}', 'WebController@read_file')->name('read_file');
 

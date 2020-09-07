@@ -11,4 +11,8 @@ class SchoolAccount extends Model
     public function klass(){
         return $this->belongsTo(Klass::class , 'klass_id');
     }
+
+    public function school(){
+        return $this->belongsTo(School::class , 'school_id');
+    }
 }

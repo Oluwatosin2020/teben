@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\VideoStream;
 use App\Klass;
 use Illuminate\Http\Request;
 use App\User;
@@ -134,12 +135,9 @@ class MediaController extends Controller
     }
 
 
-    public function watchVideoAttachment($filename) {
-        $path = $this->mediaPath().$filename;
-        $fileContents = Storage::disk('local')->get($path);
-        $response = Response::make($fileContents, 200);
-        $response->header('Content-Type', "video/mp4");
-        return $response;
+    public function watchVideoAttachment($filename){
+        $stream = new VideoStream(decrypt($filename));
+        return $stream->start();
     }
 
 

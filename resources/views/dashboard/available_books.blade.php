@@ -87,10 +87,13 @@
                                     <b>File Size:</b> {{$media->size}}
                                 </div>
                                 <div class="mb-2">
-                                    <b>Level:</b> {{$media->level}}
+                                    <b>Level:</b> {{ getLevels($media->level) }}
                                 </div>
                                 <div class="mb-2">
-                                    <b>Subject:</b> {{$media->subject}}
+                                    <b>Class:</b> {{$media->klass->name }}
+                                </div>
+                                <div class="mb-2">
+                                    <b>Subject:</b> {{$media->subject->name }}
                                 </div>
                                 <div class="mb-3">
                                     <b>Price:</b> NGN {{$media->price}}

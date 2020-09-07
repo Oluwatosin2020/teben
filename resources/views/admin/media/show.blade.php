@@ -88,25 +88,26 @@
                   </div>
                 </div>
               </div>
-            <!--Add coupon Modal -->
-            @if($media->attachment_type == 'Video')
-            <div class="modal fade bd-example-modal-md" id="watchVideo">
-                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Watch Video</h5>
-                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                        </div>
-                        <div class="modal-body row">
-                            <video class="col-12" width="100%" height="320" controls>
-                                    <source src="{{ getFileFromStorage($media->getAttachment(), 'storage') }}" type="video/mp4">
-                                    Your browser does not support the video tag.
-                            </video>
+
+                <!--Add coupon Modal -->
+                @if($media->attachment_type == 'Video')
+                <div class="modal fade bd-example-modal-md" id="watchVideo">
+                    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Watch Video</h5>
+                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                            </div>
+                            <div class="modal-body row">
+                                <video class="col-12" width="100%" height="320" controls>
+                                        <source src="{{ route('watch_video_attachment' , encrypt($media->getAttachment())) }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                </video>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            @endif
+                @endif
                                  <div class="modal fade bd-example-modal-md" id="editMedia">
                                     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                                         <div class="modal-content">
@@ -183,7 +184,7 @@
                                                             <select class="form-control" name="subject" style="height:45px" aria-required="true">
                                                                 <option disabled selected>Select One</option>
                                                                 @foreach($subjects as $subject)
-                                                                <option value="{{$subject->name}}" {{$media->subject == $subject->name ? 'selected' : ''}}>{{$subject->name}}</option>
+                                                                <option value="{{$subject->id}}" {{$media->subject == $subject->name ? 'selected' : ''}}>{{$subject->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                             @error('subject')
