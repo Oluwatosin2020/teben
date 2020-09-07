@@ -190,10 +190,16 @@ trait Constants
     public $mediaCoverImagePath = 'media/cover';
 
     /**
-     * Blog Post images file path
+     * User avatar images file path
      * @return string
      */
-    public $blogPostsImagePath = 'images/blog/posts';
+    public $userAvatarImagePath = 'images/avatar';
+
+    /**
+     * Receipt  images file path
+     * @return string
+     */
+    public $receiptImagePath = 'images/receipts';
 
     /**
      * Course Categories images file path

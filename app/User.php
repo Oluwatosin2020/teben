@@ -2,13 +2,14 @@
 
 namespace App;
 
+use App\Traits\Constants;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable //implements MustVerifyEmail
 {
-    use Notifiable;
+    use Notifiable , Constants;
 
     /**
      * The attributes that are mass assignable.
@@ -69,9 +70,13 @@ class User extends Authenticatable //implements MustVerifyEmail
 
     public function getAvatar(){
         if(!empty($this->avatar)){
-           return route('read_file' , encrypt($this->avatar));
+           return route('read_file' , encrypt($this->avatarPath()));
         }
         return my_asset('user.png');
+    }
+
+    public function avatarPath(){
+        return $this->userAvatarImagePath.'/'.$this->avatar;
     }
 
     public function getUUID(){

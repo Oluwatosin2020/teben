@@ -81,14 +81,14 @@ class HomeController extends Controller
         if($user->role == "Admin"){
             return redirect('admin');
         }
-        
-        
+
+
         if($user->role == "Investor"){
             $invests = Invest::where('user_id',$user->id)->orderby('created_at','desc')->get();
             return view('dashboard.investor',compact('invests'));
         }
-        
-        
+
+
         $reqs = Transaction::where('user_id',$user->id)->where('type','Request');
         $activeReq = $reqs->where('status','Accepted')->count();
         $completeReq = $reqs->where('status','Completed')->count();
@@ -99,8 +99,8 @@ class HomeController extends Controller
         Session ::flash('notify_msg','Welcome to Teben Tutors!');
         return view('dashboard.home',compact('activeReq','completeReq','pendingReq'));
     }
-    
-    
+
+
     public function mynotifications($last = null){
         $user = Auth::user();
         if(is_null($last)){
@@ -110,12 +110,12 @@ class HomeController extends Controller
             $nots = Notification::where('user_id',$user->id)->where('id','<',($last+1))->orderby('id','desc')->paginate(5);
         }
         $data = collect();
-        
+
         foreach($nots as $not){
-            
+
             $startTime = Carbon::parse($not->created_at);
             $finishTime = Carbon::now();
-            
+
             $time = $startTime->diffForHumans($finishTime , true);
 
             $data->put($not->id,['msg'=> $not->message,'type' => $not->type, 'status' => $not->read_status, 'ref' => $not->reference_id, 'time' => $time.' ago']);
@@ -123,8 +123,8 @@ class HomeController extends Controller
         return response()->json(array($data));
     }
 
-   
-    
+
+
     public function quicktutors()
     {
         $subjects = Subject::orderby('name','asc')->get();
@@ -134,13 +134,13 @@ class HomeController extends Controller
     public function getTutors(Request $request){
         $user = Auth::user();
         $list = collect();
-        $teachers = Teacher::where('user_id','!=',$user->id)->where('status',1)->orderby('rating','desc')->get(); //->toArray()  
+        $teachers = Teacher::where('user_id','!=',$user->id)->where('status',1)->orderby('rating','desc')->get(); //->toArray()
         foreach($teachers as $teacher){
             $age = abs(date("Y") - $teacher->dob);   //Carbon::parse($teacher->dob)->diffInYears(now());
            if($teacher->major == $request['subject'] || $teacher->sub1 == $request['subject'] || $teacher->sub2 == $request['subject'] ){
                 $list->put($teacher->id , [$teacher->user->name, $teacher->user->avatar, $age, $teacher->qualification, $teacher->yrs_experience,[$teacher->user->town.' , '.$teacher->user->lga.' , '.$teacher->user->state],$teacher->language,$teacher->jobs,$teacher->user->uuid,$teacher->user->id]);
             }
-            
+
         }
         // dd($list);
         // $list = $list->toArray();
@@ -149,22 +149,20 @@ class HomeController extends Controller
 
     public function uploadAvatar(Request $request){
         $user = Auth::user();
-        $Image_path = public_path('/avatar_images');
 
         if(!empty($user->avatar)){
-            unlink($Image_path.'/'.$user->avatar);
+            deleteFileFromPrivateStorage($user->avatarPath());
             $user->update(["avatar" => null]);
         }
 
         $image = $request->file('image');
-        $filename = $user->id.'.'.$image->getClientOriginalExtension();
-        $this->formImage($Image_path,$image,$filename);
+        $filename = putFileInPrivateStorage($image , $this->userAvatarImagePath);
 
         $user->avatar = $filename;
         $user->save();
 
         $data=[$filename];
-        
+
         return response()->json(array($data));
     }
 
@@ -183,7 +181,7 @@ class HomeController extends Controller
 
 
         $user->update($data);
-        
+
         return redirect('/home');
 
     }
@@ -225,49 +223,23 @@ class HomeController extends Controller
 
         $user = Auth::user();
         if($request['image'] != ""){
-            $Image_path = public_path('/avatar_images');
 
             if(!empty($user->avatar)){
-                unlink($Image_path.'/'.$user->avatar);
+                deleteFileFromPrivateStorage($user->avatarPath());
                 $user->update(["avatar" => null]);
             }
 
             $image = $request->file('image');
-            $filename = $user->id.'.'.$image->getClientOriginalExtension();
-            $this->formImage($Image_path,$image,$filename);
+            $filename = putFileInPrivateStorage($image , $this->userAvatarImagePath);
 
             $data['avatar'] = $filename;
         }
-        
+
         $user->update($data);
 
         Session::flash('success_msg','Profile updated successfully!');
 
         return redirect()->back();
-    }
-    
-    
-    private function formImage($Image_path,$image,$filename){
-
-            // create new image with transparent background color
-            $background = Image::canvas(300, 300, '#ffffff');
-            // read image file and resize it to 262x54
-            $img = Image::make($image);
-            //Resize image
-            $img->resize(300, 300, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            });
-
-            // insert resized image centered into background
-            $background->insert($img, 'center');
-
-            // crop created image 
-            // $background->crop(220,220);
-
-            // save
-            $background->save($Image_path.'/'.$filename); 
-            return;
     }
 
 
@@ -280,51 +252,49 @@ class HomeController extends Controller
         $transactions = Transaction::where('user_id',$user->id)->orderby('created_at','desc')->get();
         return view('dashboard.transactions',compact('transactions'));
     }
-    
+
     // public function myrequests(){
     //     $user = Auth::user();
     //     $requests = Transaction::where('user_id',$user->id)->where('type','Request')->orderby('created_at','desc')->get();
     //     return view('dashboard.myrequests',compact('requests'));
     // }
-    
+
     public function lessonrequests(){
         $user = Auth::user();
         $requests = Transaction::where('type','Request')->where('user_id',$user->id)->orWhere('receiver_id',$user->id)->orderby('created_at','desc')->get();
         return view('dashboard.myrequests',compact('requests'));
     }
-    
+
     public function uploadreceipt(Request $request){
         $user = Auth::User();
         $data = $request->validate([
             'image' => 'required'
         ]);
         $image = $request->file('image');
-        $Image_path = public_path('/receipt_images');
-        $filename = time().'.'.$image->getClientOriginalExtension();
-        $image->move($Image_path,$filename);
-        
+        $filename = putFileInPrivateStorage($image , $this->receiptImagePath);
+
         $data['user_id'] = $user->id;
         $data['image'] = $filename;
         $data['type'] = 'Uploaded';
-        
+
         $receipt = PayReceipt::create($data);
         Session::flash('success_msg','Deposit would be processed soon!');
         return redirect()->back();
     }
-    
+
     public function couponRecharge(Request $request){
         $data = $request->validate([
             'code' => 'required',
         ]);
-        
+
         $user = Auth::user();
         $coupon = Coupon::where('code',$data['code'])->first();
-        
+
         if(empty($coupon)){
             Session::flash('error_msg','Coupon is invalid!');
             return redirect()->back();
         }
-        
+
         if(!empty($coupon->user_id)){
             if($coupon->user_id == $user->id){
                 Session::flash('error_msg','Coupon has been used by you!');
@@ -339,7 +309,7 @@ class HomeController extends Controller
         $user->save();
         $coupon->user_id = $user->id;
         $coupon->save();
-        
+
         $recharge = [
             'user_id' => $user->id,
             'uuid' => $this->UUid(),
@@ -348,9 +318,9 @@ class HomeController extends Controller
             'type' => 'Deposit',
             'status' => 'Completed',
         ];
-        
+
         Transaction::create($recharge);
-        
+
         Session::flash('success_msg','Recharge Successful!');
         return redirect()->back();
     }
@@ -382,7 +352,7 @@ class HomeController extends Controller
             Session::flash('success_msg','Deposit acknowlegded and confirmed!');
             return redirect()->back();
         }
-        
+
         Session::flash('error_msg','Operation failed!');
         return redirect()->back();
     }
@@ -402,7 +372,7 @@ class HomeController extends Controller
             'type' => 'Withdrawal',
             'status' => 'Processing',
         ];
-        
+
         $bName = explode(',',$user->bank->bank_name);
 
         // Make Post Fields Array
@@ -416,9 +386,9 @@ class HomeController extends Controller
                "description" => "You placed a withdrawal",
                "name" => $user->name,
         ];
-        
+
         $curl = curl_init();
-        
+
         curl_setopt_array($curl, array(
             CURLOPT_URL => "https://api.paystack.co/transferrecipient",
             CURLOPT_RETURNTRANSFER => true,
@@ -434,12 +404,12 @@ class HomeController extends Controller
                 "content-type: application/json",
             ),
         ));
-        
+
         $response = curl_exec($curl);
         $err = curl_error($curl);
-        
+
         curl_close($curl);
-        
+
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
@@ -453,18 +423,18 @@ class HomeController extends Controller
         // if(!empty($transaction->id)){
         //     $user->wallet = 0;
         //     $user->save();
-            
-            
+
+
 
         //     Session::flash('success_msg','Withdrawal acknowlegded and confirmed!');
         //     return redirect()->back();
         // }
-        
+
         // Session::flash('error_msg','Operation failed!');
         // return redirect()->back();
     }
-    
-    
+
+
     public function transReceipts(){
         $curl = curl_init();
 
@@ -483,7 +453,7 @@ class HomeController extends Controller
         $response = curl_exec($curl);
         $err = curl_error($curl);
         curl_close($curl);
-        
+
         if ($err) {
             echo "cURL Error #:" . $err;
         } else {
@@ -491,10 +461,10 @@ class HomeController extends Controller
             $returnData = $result->data;
             dd($returnData[0]);
         }
-        
+
     }
-    
-    
+
+
 
 
     public function requestTeacher(Request $request){
@@ -512,7 +482,7 @@ class HomeController extends Controller
             'subject' => 'required',
             'duration' => 'required',
             'curriculum' => 'required',
-            
+
         ]);
 
         $data['user_id'] = $user->id;
@@ -542,7 +512,7 @@ class HomeController extends Controller
             $notification->message = "New lesson request!";
             $notification->type = "Request";
             $notification->save();
-            
+
             //send notification to admin
             $notification = new Notification();
             $notification->user_id = $this->admin()->id;
@@ -575,7 +545,7 @@ class HomeController extends Controller
         if($opt == 'Accepted'){    //Request was accepted
             $tran->status = $opt;
             $tran->save();
-            
+
             //send notification to parent
             $notification = new Notification();
             $notification->user_id = $parent->id;
@@ -605,7 +575,7 @@ class HomeController extends Controller
         if($opt == 'Cancelled'){    //Request was cancelled
             $tran->status = $opt;
             $tran->save();
-            
+
             $msg = "Request has been cancelled!";
             $type = $opt;
             $this->refundParent($parent,$tran, $msg , $type);
@@ -647,13 +617,13 @@ class HomeController extends Controller
 
 
     public function mail(){
-        
+
        $name = 'Krunal';
        Mail::to('ugoloconfidence@hotmail.com')->send(new TestMail($name));
-       
+
        return 'Email was sent';
     }
-    
+
     public function test(){
         return $this->checkRequest();
     }
@@ -708,10 +678,10 @@ class HomeController extends Controller
 
     public function myinfo(){
         $user = Auth::user();
-        
+
         return view('dashboard.myinfo',compact('user'));
     }
-    
+
     public function makeInvestment(Request $request){
         $data = $request->validate([
             'amount' => 'required',
@@ -720,7 +690,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $period = $data['duration'];
         $amt = $data['amount'];
-        
+
         if($period == 6){
             switch ($amt){
                 case 20000: $perc = 14; break;
@@ -747,12 +717,12 @@ class HomeController extends Controller
         $data['reference'] = $this->uuid();
         $data['percent'] = $perc;
         $data['status'] = "Pending";
-        
+
         $user->wallet-=$amt;
         $user->save();
-        
+
         $invest = Invest::create($data);
-        
+
         $tran = Transaction::create([
             'user_id' => $user->id,
             'uuid' => $this->UUid(),
@@ -761,7 +731,7 @@ class HomeController extends Controller
             'amount' => $amt,
             'status' => 'Completed',
         ]);
-        
+
         //send notification to user
         $notification = new Notification();
         $notification->user_id = $user->id;
@@ -769,7 +739,7 @@ class HomeController extends Controller
         $notification->message = "Your investment request has been submitted!";
         $notification->type = 'Investment';
         $notification->save();
-        
+
         //send notification to admin
         $notification = new Notification();
         $notification->user_id = $this->admin()->id;
@@ -777,12 +747,12 @@ class HomeController extends Controller
         $notification->message = "An investment request has been submitted. Kindly review it!";
         $notification->type = 'Investment';
         $notification->save();
-        
+
         Session::flash('success_msg','Submitted, kindly wait for confirmation!');
         return redirect()->back();
     }
-    
-    
+
+
     public function available_books()
     {
         $user = Auth::user();
@@ -793,11 +763,11 @@ class HomeController extends Controller
         }
         return view('dashboard.available_books',compact('user','medias'));
     }
-    
+
     function mediaPath(){
         return 'media/attachments/';
     }
-    
+
     protected function mediaTemplate($media){
        return '<div class="card-header row mb-3">
             <div class="col-md-4 text-center">
@@ -831,35 +801,35 @@ class HomeController extends Controller
             </div>
         </div>';
     }
-    
+
     public function downloadAttachment(Request $request){
         // dd($request->all());
         $data = $request->validate([
             'media_id' => 'required',
             'name' => 'required'
         ]);
-        
+
         // dd($data);
-        
+
         $media = Media::findorfail($data['media_id']);
-        
+
         $name = $data['name'];
         $filename = $media->attachment;
         $amt = $media->price;
-        
+
         $user = Auth::user();
-        
+
         if($user->wallet >= $amt){
-            
-        
+
+
             $path = $this->mediaPath().$filename;
             $exists = Storage::disk('local')->exists($path);
             if($exists){
-                
+
                 $user->wallet-=$amt;
                 $user->save();
-            
-                
+
+
                 $tran = Transaction::create([
                     'user_id' => $user->id,
                     'uuid' => $this->UUid(),
@@ -868,7 +838,7 @@ class HomeController extends Controller
                     'amount' => $amt,
                     'status' => 'Completed',
                 ]);
-                
+
                 //send notification to user
                 $notification = new Notification();
                 $notification->user_id = $user->id;
@@ -876,22 +846,22 @@ class HomeController extends Controller
                 $notification->message = "Your download is complete!";
                 $notification->type = 'Download';
                 $notification->save();
-            
-                
+
+
                 $type = Storage::mimeType($path);
                 $ext = explode('.',$filename)[1];
                 // dd($ext);
                 $headers = [
                     'Content-Type' => $type,
                 ];
-    
+
                 Session::flash('success_msg','Downloading in progress...');
                 return Storage::download($path,$name.'.'.$ext,$headers);
             }
-            
+
             Session::flash('error_msg','Download unsuccessful!');
             return back();
-            
+
         }
         Session::flash('error_msg','Insufficient funds!');
         return back();
