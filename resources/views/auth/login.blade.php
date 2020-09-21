@@ -54,7 +54,7 @@
                             </div>
                         </div>
                         <div class="row mt-5 text-center">
-                            <a href="{{route('account.login')}}" class="btn btn-block btn-info mb-2">Log in to media account?</a>
+                            <a href="{{route('account.login')}}" class="btn btn-block btn-info mb-2">Log in to video account?</a>
                         </div>
 
 

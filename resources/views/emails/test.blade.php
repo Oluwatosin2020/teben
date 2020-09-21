@@ -28,11 +28,11 @@
       <div>
     Hi, This is : {{ $name }}
 </div>
-        
+
             <!-- anchor tab start -->
             <div class="offset-md-2 col-md-8 mt-5">
                 <div class="card">
-                    <div class="card-body">                            
+                    <div class="card-body">
 
                     </div>
                 </div>

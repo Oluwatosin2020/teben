@@ -27,6 +27,7 @@
                             <th>Amount</th>
                             <th>Downloads</th>
                             <th>Available</th>
+                            <th>Status</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -40,6 +41,7 @@
                             <td class="align-middle">{{$account->amount}}</td>
                             <td class="align-middle">{{$account->downloads}}</td>
                             <td class="align-middle">{{$account->available}}</td>
+                            <td class="align-middle">{{$account->status == 1 ? 'Approved' : 'Not Approved' }}</td>
                             <td class="align-middle"><a href="#" class="btn btn-success" data-toggle="modal" data-target="#viewmodal-{{$account->id}}" >View</a></td>
                         </tr>
                         <div class="modal fade bd-example-modal-md" id="viewmodal-{{$account->id}}">

@@ -27,7 +27,51 @@
                                     {{ Session::get('error') }}
                                 </div>
                             @endif
-					    </div>
+                        </div>
+
+                        @if (!$status)
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h4 class="mt-3">Pay with coupon</h4>
+                                    <p class="mb-2 mt-2">
+                                        Contact any of our agents or call our customer care line to get your coupon code and fill it in below
+                                    </p>
+                                    <p>or</p>
+                                    <p class="mb-1">Call +234 703 396 4406 for assitance</p>
+                                    <div class="text-center">
+                                        <form action="{{ route('couponRecharge') }}" method="post" enctype="multipart/form-data"> {{csrf_field()}}
+                                            <label>Use Coupon Code</label>
+                                            <input type="number" class="form-control" name="code" required>
+                                            <button type="submit" class="btn btn-success mt-2">Proceed</button>
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <h4 class="mt-3">Pay with bank transfer</h4>
+                                    {{-- <div class="text-center mb-2 mt-3">
+                                        Kindly Make your payments to the account details below and upload a receipt below!
+                                    </div> --}}
+                                    <p class="mt-1">Gurantee Trust Bank (GTB)</p>
+                                    <p>0490382627</p>
+                                    <p class="mb-1">Teben Educational Centre</p>
+                                    <p>or</p>
+                                    <p class="mb-1">Call +234 703 396 4406 for assitance</p>
+                                    <form action="{{ route('uploadreceipt') }}" method="post" enctype="multipart/form-data"> {{csrf_field()}}
+                                        <label>Upload payment receipt</label>
+                                        <input type="file" class="form-control" name="image" required>
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-success mt-2">Proceed</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-4">
+                                    <h4 class="mt-3">Pay with recharge card</h4>
+
+                                </div>
+                            </div>
+
+                        @endif
 
 
                         @foreach($medias as $media)

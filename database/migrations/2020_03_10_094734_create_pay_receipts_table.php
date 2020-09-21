@@ -15,7 +15,7 @@ class CreatePayReceiptsTable extends Migration
     {
         Schema::create('pay_receipts', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('admin_id')->index()->nullable();
             $table->unsignedBigInteger('user_id')->index();
             $table->string('image')->nullable();

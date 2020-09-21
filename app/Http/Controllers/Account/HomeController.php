@@ -36,11 +36,20 @@ class HomeController extends Controller
         if(empty($account)){
             return redirect()->route('account.login');
         }
-        $medias = Media::where('status','Visible')
+        $status = false;
+        if($account->status == 1){
+            $status = true;
+            $medias = Media::where('status','Visible')
                         ->where('klass_id' , $account->klass_id)
                         ->where('term' , $account->term)
                         ->orderby('title','asc')->paginate(50);
-        return view('account.dashboard' , compact('account' , 'medias'));
+        }
+        else{
+            $media = [];
+            session()->flash('error' , 'Your account in inactive!  Pay to activate your account');
+        }
+
+        return view('account.dashboard' , compact('account' , 'medias' , 'status'));
     }
 
     public function download(Request $request){
