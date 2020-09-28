@@ -42,7 +42,19 @@
                             <td class="align-middle">{{$account->downloads}}</td>
                             <td class="align-middle">{{$account->available}}</td>
                             <td class="align-middle">{{$account->status == 1 ? 'Approved' : 'Not Approved' }}</td>
-                            <td class="align-middle"><a href="#" class="btn btn-success" data-toggle="modal" data-target="#viewmodal-{{$account->id}}" >View</a></td>
+                            <td class="align-middle">
+                                <form method="Post" action="{{ route('admin.accounts.destroy' , $account) }}">@csrf @method('delete')
+                                    <a href="#" class="btn btn-info btn-xs" data-toggle="modal" data-target="#viewmodal-{{$account->id}}" >
+                                        <i class="ti-eye"></i>
+                                    </a>
+                                    <a href="#" class="btn btn-success btn-xs" data-toggle="modal" data-target="#edit_account_{{ $account->id }}" >
+                                        <i class="ti-pencil"></i>
+                                    </a>
+                                    <button type="submit" class="btn btn-danger btn-xs" onclick=" return confirm('Are you sure you want to delete this account?');">
+                                        <i class="ti-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                         <div class="modal fade bd-example-modal-md" id="viewmodal-{{$account->id}}">
                             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
@@ -60,6 +72,8 @@
                                 </div>
                             </div>
                         </div>
+                        @include('admin.fragments.modals.edit_school_account' , ['account' => $account])
+
                         @endforeach
                         </tbody>
                       </table>
@@ -69,63 +83,7 @@
               </div>
 
             <!--Add account Modal -->
-            <div class="modal fade bd-example-modal-md" id="addaccount">
-                <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">New School Account</h5>
-                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                            <form method="post" action="{{ route('admin.accounts.store') }}">@csrf
-                                <input type="hidden" name="school_id" value="{{ $school->id}}" required>
-                                <div class="form-group">
-                                    <label for="">Account Name</label>
-                                    <input name="name" type="text" class="form-control" placeholder="" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Code</label>
-                                    <input name="code" type="text" class="form-control" placeholder="" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Class</label>
-                                    <select name="klass_id"  class="form-control" placeholder="" required>
-                                        <option value="" disabled selected> Select one</option>
-                                        @foreach ($classes as $class)
-                                            <option value="{{$class->id}}">{{$class->name}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Term</label>
-                                    <select name="term"  class="form-control" placeholder="" required>
-                                        <option value="" disabled selected> Select one</option>
-                                        @foreach (getTerms() as $key => $value)
-                                            <option value="{{$key}}">{{$value}}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Amount</label>
-                                    <input name="amount" type="text" class="form-control" placeholder="" required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="">Downloads</label>
-                                    <input name="downloads" type="number" class="form-control" placeholder="Available downloads" required>
-                                </div>
-
-
-                                <button type="submit" class="btn btn-sm btn-primary">Proceed</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           @include('admin.fragments.modals.add_school_account')
         </section>
     </div>
 @endsection

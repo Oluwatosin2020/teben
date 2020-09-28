@@ -26,11 +26,11 @@ use Response;
 
 use Illuminate\Support\Facades\Mail;
 use App\Mail\TestMail;
-
+use App\SchoolAccount;
 use \Milon\Barcode\DNS1D;
 use \Milon\Barcode\DNS2D;
 use GuzzleHttp\Psr7;
-
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -283,46 +283,80 @@ class HomeController extends Controller
     }
 
     public function couponRecharge(Request $request){
-        $data = $request->validate([
-            'code' => 'required',
-        ]);
+        DB::beginTransaction();
+        try{
+            $data = $request->validate([
+                'code' => 'required',
+                'school_account_id' => 'nullable|exists:school_accounts,id',
+            ]);
 
-        $user = Auth::user();
-        $coupon = Coupon::where('code',$data['code'])->first();
-
-        if(empty($coupon)){
-            Session::flash('error_msg','Coupon is invalid!');
-            return redirect()->back();
-        }
-
-        if(!empty($coupon->user_id)){
-            if($coupon->user_id == $user->id){
-                Session::flash('error_msg','Coupon has been used by you!');
+            $coupon = Coupon::where('code',$data['code'])->first();
+    // Check if code is valid
+            if(empty($coupon)){
+                Session::flash('error_msg','Coupon is invalid!');
                 return redirect()->back();
+            }
+
+            if(empty($request['school_account_id'])){
+                $user = Auth::user();
+                if(!empty($coupon->user_id)){
+                    if($coupon->user_id == $user->id){
+                        Session::flash('error_msg','Coupon has been used by you!');
+                        return redirect()->back();
+                    }
+                    else{
+                        Session::flash('error_msg','Sorry, coupon has been used!');
+                        return redirect()->back();
+                    }
+                }
+                $user->wallet+= $coupon->amount;
+                $user->save();
+                $coupon->user_id = $user->id;
             }
             else{
-                Session::flash('error_msg','Sorry, coupon has been used!');
-                return redirect()->back();
+                $account = SchoolAccount::findorfail($request['school_account_id']);
+                if($coupon->amount < $account->iamountd){
+                    Session::flash('error_msg','Coupon value is less than required amount!');
+                    return redirect()->back();
+                }
+                if(!empty($coupon->school_account_id)){
+                    if($coupon->school_account_id == $account->id){
+                        Session::flash('error_msg','Coupon has been used by you!');
+                        return redirect()->back();
+                    }
+                    else{
+                        Session::flash('error_msg','Sorry, coupon has been used!');
+                        return redirect()->back();
+                    }
+                }
+
+                $account->status = 1;
+                $account->save();
             }
+
+            $coupon->save();
+
+            $recharge = [
+                'user_id' => $user->id ?? null,
+                'school_account_id' => $account->id ?? null,
+                'uuid' => $this->UUid(),
+                'amount' => $coupon->amount,
+                'purpose' => 'Your recharge NGN'. $coupon->amount .' was successful!Coupon Code: #'.$coupon->code,
+                'type' => 'Deposit',
+                'status' => 'Completed',
+            ];
+
+            Transaction::create($recharge);
+
+            Session::flash('success_msg','Recharge Successful!');
+            DB::commit();
+            return redirect()->back();
         }
-        $user->wallet+= $coupon->amount;
-        $user->save();
-        $coupon->user_id = $user->id;
-        $coupon->save();
-
-        $recharge = [
-            'user_id' => $user->id,
-            'uuid' => $this->UUid(),
-            'amount' => $coupon->amount,
-            'purpose' => 'Your recharge NGN'. $coupon->amount .' was successful!Coupon Code: #'.$coupon->code,
-            'type' => 'Deposit',
-            'status' => 'Completed',
-        ];
-
-        Transaction::create($recharge);
-
-        Session::flash('success_msg','Recharge Successful!');
-        return redirect()->back();
+        catch(Exception $e){
+            DB::rollback();
+            Session::flash('error_msg', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
     public function deposit(Request $request){

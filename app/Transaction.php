@@ -13,6 +13,10 @@ class Transaction extends Model
       return  $this->belongsTo(User::class);
     }
 
+    public function account(){
+        return  $this->belongsTo(SchoolAccount::class);
+      }
+
     public function comments(){
       return $this->hasMany(Comment::class);
     }

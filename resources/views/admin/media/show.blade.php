@@ -184,7 +184,7 @@
                                                             <select class="form-control" name="subject" style="height:45px" aria-required="true">
                                                                 <option disabled selected>Select One</option>
                                                                 @foreach($subjects as $subject)
-                                                                <option value="{{$subject->id}}" {{$media->subject == $subject->name ? 'selected' : ''}}>{{$subject->name}}</option>
+                                                                <option value="{{$subject->id}}" {{$media->subject == $subject->id ? 'selected' : ''}}>{{$subject->name}}</option>
                                                                 @endforeach
                                                             </select>
                                                             @error('subject')

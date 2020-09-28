@@ -215,11 +215,7 @@ class MediaController extends Controller
     public function destroy($id)
     {
         $media = Media::findorfail($id);
-        $path = $this->mediaPath().$media->attachment;
-        $exists = Storage::disk('local')->exists($path);
-        if($exists){
-           Storage::delete($path);
-        }
+        deleteFileFromPrivateStorage($media->getAttachment());
         $media->delete();
         return redirect()->route('media.index')->withSuccess(__('Media successfully deleted.'));
     }

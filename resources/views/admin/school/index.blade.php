@@ -25,6 +25,7 @@
                             <th>Local Gov.</th>
                             <th>Address</th>
                             <th>Principal</th>
+                            <th>Accounts</th>
                             <th>Action</th>
                           </tr>
                         </thead>
@@ -36,6 +37,7 @@
                             <td class="align-middle">{{$school->lga}}</td>
                             <td class="align-middle">{{$school->address}}</td>
                             <td class="align-middle">{{$school->principal_name}}</td>
+                            <td class="align-middle">{{$school->accounts->count()}}</td>
                             <td class="align-middle">
                                 <a href="{{ route('admin.schools.show' , $school)}}" class="btn btn-info btn-sm">View</a>
                             </td>

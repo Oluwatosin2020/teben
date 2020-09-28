@@ -31,7 +31,7 @@
 
                         @if (!$status)
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                     <h4 class="mt-3">Pay with coupon</h4>
                                     <p class="mb-2 mt-2">
                                         Contact any of our agents or call our customer care line to get your coupon code and fill it in below
@@ -47,27 +47,14 @@
                                     </div>
 
                                 </div>
-                                <div class="col-md-4">
-                                    <h4 class="mt-3">Pay with bank transfer</h4>
-                                    {{-- <div class="text-center mb-2 mt-3">
-                                        Kindly Make your payments to the account details below and upload a receipt below!
-                                    </div> --}}
-                                    <p class="mt-1">Gurantee Trust Bank (GTB)</p>
-                                    <p>0490382627</p>
-                                    <p class="mb-1">Teben Educational Centre</p>
-                                    <p>or</p>
-                                    <p class="mb-1">Call +234 703 396 4406 for assitance</p>
-                                    <form action="{{ route('uploadreceipt') }}" method="post" enctype="multipart/form-data"> {{csrf_field()}}
-                                        <label>Upload payment receipt</label>
-                                        <input type="file" class="form-control" name="image" required>
-                                        <div class="text-center">
-                                            <button type="submit" class="btn btn-success mt-2">Proceed</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="col-md-4">
-                                    <h4 class="mt-3">Pay with recharge card</h4>
 
+                                <div class="col-md-6">
+                                    <h4 class="mt-3">Pay with recharge card</h4>
+                                    <br>
+                                    <div class="text-center">
+                                        <p>You can recharge your account with an MTN recharge card. Please make sure you have your airtime ready!</p>
+                                        <button class="btn btn-success mt-2" onclick="callAtgPay()">Pay</button>
+                                    </div>
                                 </div>
                             </div>
 
@@ -144,3 +131,50 @@
     </div>
 
 @endsection
+@section('script')
+<script src="https://aimtoget.com/assets/webpay/inline.js"></script>
+<script>
+    function callAtgPay(e) {
+    // e.preventDefault()
+
+    AtgPayment.pay({
+        //customer's email address
+        email: 'payment@tebentutors.com',
+
+        //Customer's phone number (Optional)
+        phone: '+2347036331480',
+
+        //customer's description
+        description: 'Pay for video subscription',
+
+        // Amount to pay in naira
+        amount: '{{ $account->amount }}',
+
+        //Payment reference
+        //If not specified, a reference will be generated for you
+        reference: '{{ $logo_img }}',
+
+        // Merchant's aimotget PUBLIC KEY
+        key:'3684121b9a6cb6591d83c83f94f71d698f662a9228cb2285',
+
+        //Url to the logo you want displayed on the payment modal
+        logo_url: '',
+
+        onclose: function () {
+            //do something when modal is closed
+        },
+
+        onerror: function (data) {
+            let reference = data.reference
+            //payment failed, do something with reference
+        },
+
+        onsuccess: function (data) {
+            let reference = data.reference
+            //get reference and verify payment before awarding value
+        }
+    })
+
+}
+</script>
+@stop

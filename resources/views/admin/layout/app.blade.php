@@ -233,6 +233,7 @@
                 </div>
             </div>
 
+    @include('admin.layout.flash_message')
     @yield('content')
 
 

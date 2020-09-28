@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Teben Dashboard</title>
+    <title>Teben Video Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="{{ $logo_img }}">
     <link rel="stylesheet" href="{{ $admin_source }}/css/bootstrap.min.css">
@@ -48,7 +48,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="">
-                    <a href="{{ url('/') }}"><img class="logo" src="{{ asset('public/logo.png') }}" alt="Logo" title="Logo" style="height:60px;width:50px"/></a> <span class="logo-text"> Dashboard </span>
+                    <a href="{{ url('/') }}"><img class="logo" src="{{ $logo_img }}" alt="Logo" title="Logo" style="height:60px;width:50px"/></a> <span class="logo-text"> Dashboard </span>
                 </div>
             </div>
             <div class="main-menu">
@@ -155,6 +155,7 @@
     <script src="{{ $admin_source }}/js/plugins.js"></script>
     <script src="{{ $admin_source }}/js/scripts.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
+    @yield('script')
 
 </body>
 
