@@ -187,7 +187,7 @@
                                                                 <option value="{{$subject->id}}" {{$media->subject_id == $subject->id ? 'selected' : ''}}>{{$subject->name}}</option>
                                                                 @endforeach
                                                             </select>
-                                                            @error('subject')
+                                                            @error('subject_id')
                                                                 <p class="" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </p>

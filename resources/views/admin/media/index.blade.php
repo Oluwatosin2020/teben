@@ -176,7 +176,7 @@
                                                                 <option value="{{$subject->id}}">{{$subject->name}}</option>
                                                                 @endforeach
                                                             </select>
-                                                            @error('subject')
+                                                            @error('subject_id')
                                                                 <p class="" role="alert">
                                                                     <strong>{{ $message }}</strong>
                                                                 </p>
