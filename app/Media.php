@@ -19,7 +19,7 @@ class Media extends Model
     }
 
     public function subject(){
-        return $this->belongsTo(Subject::class , 'subject');
+        return $this->belongsTo(Subject::class , 'subject_id');
     }
 
     public function klass(){

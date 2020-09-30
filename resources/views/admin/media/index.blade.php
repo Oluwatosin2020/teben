@@ -170,7 +170,7 @@
 
                                                         <div class="form-group">
                                                             <label>Subject</label>
-                                                            <select class="form-control" name="subject" style="height:45px" aria-required="true">
+                                                            <select class="form-control" name="subject_id" style="height:45px" aria-required="true">
                                                                 <option disabled selected>Select One</option>
                                                                 @foreach($subjects as $subject)
                                                                 <option value="{{$subject->id}}">{{$subject->name}}</option>

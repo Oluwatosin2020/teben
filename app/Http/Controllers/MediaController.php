@@ -99,7 +99,7 @@ class MediaController extends Controller
             'title' => 'required|string',
             'level' => 'required|string',
             'klass_id' => 'required|string',
-            'subject' => 'required|string',
+            'subject_id' => 'required|string',
             'image' => $mode.'|mimetypes:'.imageMimes(),
             'price' => 'required|string',
             'attachment' => $mode.'|'.$this->valid_attachment(),
@@ -241,7 +241,7 @@ class MediaController extends Controller
         $level = $request['level'];
         $subject = $request['subject'];
         $title = $request['title'];
-        $medias = Media::where(['level' => $level, 'subject' => $subject])->where('status','Visible')->orderby('title','asc')->paginate(10);
+        $medias = Media::where(['level' => $level, 'subject_id' => $subject])->where('status','Visible')->orderby('title','asc')->paginate(10);
         $subjects = Subject::orderby('name','asc')->get();
         $levels = getLevels();
         // $medias ;
@@ -269,7 +269,7 @@ class MediaController extends Controller
                     <b>Level:</b> '.$media->level.'
                 </div>
                 <div class="mb-2">
-                    <b>Subject:</b> '.$media->subject.'
+                    <b>Subject:</b> '.$media->subject->name.'
                 </div>
                 <div class="mb-3">
                     <b>Price:</b> NGN '.$media->price.'

@@ -18,7 +18,7 @@ class CreateMediaTable extends Migration
             $table->string('title');
             $table->string('image');
             $table->string('price');
-            $table->string('subject');
+            $table->string('subject_id');
             $table->string('attachment');
             $table->string('attachment_type');
             $table->string('status');
