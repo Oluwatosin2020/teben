@@ -332,6 +332,7 @@ class HomeController extends Controller
 
                 $account->status = 1;
                 $account->save();
+                $coupon->school_account_id = $account->id;
                 session()->put('school_account' , encrypt($account));
             }
 

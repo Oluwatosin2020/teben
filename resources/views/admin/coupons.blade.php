@@ -6,7 +6,7 @@
     <div class="main-content">
         <section class="section">
           <div class="section-body">
-    
+
                 <div class="card">
                   <div class="card-header">
                     <h4>Coupon Codes
@@ -33,13 +33,13 @@
                             <td class="align-middle">{{$coupon->code}}</td>
                             <td class="align-middle">NGN {{$coupon->amount}}</td>
                             <td class="align-middle">{{$coupon->agent->name }}</td>
-                            @if(empty($coupon->user_id))
+                            @if(empty($coupon->user_id) && empty($coupon->school_account_id))
                                 <td class="align-middle">Not yet</td>
                             @else
                                 <td class="align-middle">{{$coupon->user->name}}</td>
                             @endif
                             <td>
-                                @if(empty($coupon->user_id))
+                                @if(empty($coupon->user_id) && empty($coupon->school_account_id))
                                 <form action="{{ route('coupons.destroy',$coupon->id) }}" method="post" onsubmit="return confirm('Are you sure you want to delete this item?');">@csrf @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                 </form>
@@ -49,12 +49,12 @@
                             </td>
                           </tr>
 
-                
 
-                         
+
+
                     <!-- Vertically centered modal end -->
-                    
-                    
+
+
                                  <!--Info Modal -->
                                  <div class="modal fade bd-example-modal-md" id="viewmodal-{{$coupon->id}}">
                                     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
@@ -65,21 +65,24 @@
                                             </div>
                                             <div class="modal-body">
                                                 <p><b>Created at:</b> {{ date('D, M d Y h:i:a',strtotime($coupon->created_at)) }}</p>
-                                                @if(empty($coupon->user_id))
-                                                    <p><b>Used By:</b> Not yet </p>
-                                                @else
+                                                @if(!empty($coupon->user_id))
                                                     <p><b>Used By:</b> {{ $coupon->user->name }}</p>
                                                     <p><b>Used On:</b> {{ date('D, M d Y h:i:a',strtotime($coupon->updated_at)) }}</p>
+                                                @elseif(!empty($coupon->school_account_id))
+                                                    <p><b>Used By School Account:</b> {{ $coupon->school_account->name }}</p>
+                                                    <p><b>Used On:</b> {{ date('D, M d Y h:i:a',strtotime($coupon->updated_at)) }}</p>
+                                                @else
+                                                    <p><b>Used By:</b> Not yet </p>
                                                 @endif
-                                                
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                         
+
                     <!-- Vertically centered modal end -->
-                    
+
                         @endforeach
                         </tbody>
                       </table>
@@ -107,7 +110,7 @@
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    
+
                                                     <div class="form-group">
                                                         <label>Coupon Price</label>
                                                         <select class="form-control" required name="amount" style="height:45px" >
@@ -119,7 +122,7 @@
                                                             <!--<option value="10000">NGN500</option>-->
                                                         </select>
                                                     </div>
-                                                    
+
                                                     <div class="form-group">
                                                         <label>Quantity</label>
                                                         <select class="form-control" name="quantity" style="height:45px" aria-required="true">
@@ -131,7 +134,7 @@
                                                             <option value="100">100 Coupons</option>
                                                         </select>
                                                     </div>
-                                                    
+
                                                     <button type="submit" class="btn btn-sm btn-primary">Proceed</button>
                                                 </form>
                                             </div>
