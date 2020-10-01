@@ -160,7 +160,7 @@ Route::group(['middleware'=> ['admin']],function(){
 
 Route::get('/m', function() {
     $output = [];
-    \Artisan::call('make:controller TeacherController', $output);
+    \Artisan::call('migrate', $output);
     dd($output);
 });
 
