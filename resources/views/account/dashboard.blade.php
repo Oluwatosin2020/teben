@@ -27,6 +27,12 @@
                                     {{ Session::get('error') }}
                                 </div>
                             @endif
+                            @if(Session::has('atg_error'))
+                            <div class="alert alert-danger  btn-block">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{ Session::get('atg_error') }}
+                            </div>
+                        @endif
                         </div>
 
                         @if (!$status)
@@ -41,7 +47,8 @@
                                     <div class="text-center">
                                         <form action="{{ route('couponRecharge') }}" method="post" enctype="multipart/form-data"> {{csrf_field()}}
                                             <label>Use Coupon Code</label>
-                                            <input type="number" class="form-control" name="code" required>
+                                            <input type="text" class="form-control" name="code" required>
+                                            <input type="hidden" class="form-control" name="school_account_id" value="{{ $account->id }}" required>
                                             <button type="submit" class="btn btn-success mt-2">Proceed</button>
                                         </form>
                                     </div>
@@ -89,7 +96,7 @@
                                 </div>
                                 <div class="">
 
-                                    <form action="{{ route('account.download') }}" method="post" onsubmit="return confirm('Downloading may cost you money! Are you sure you want to download this item?');">@csrf
+                                    <form id="downloadForm" action="{{ route('account.download') }}" method="post" onsubmit="return confirm('Downloading may cost you money! Are you sure you want to download this item?');">@csrf
                                         <input type="hidden" name="media_id" value="{{$media->id}}" required>
                                     <a href="#" class="btn btn-sm btn-success" data-toggle="modal" data-target="#watchVideo_{{$media->id}}">Watch</a>
                                         <button type="submit" class="btn btn-sm btn-primary" >Download</button>
@@ -108,7 +115,7 @@
                                     </div>
                                     <div class="modal-body row">
                                         <video class="col-12" width="100%" height="320" controls>
-                                                <source src="{{ route('watch_video_attachment' , encrypt($media->getAttachment())) }}" type="video/mp4">
+                                                <source src="{{ route('account.watch_video_attachment' , encrypt($media->getAttachment())) }}" type="video/mp4">
                                                 Your browser does not support the video tag.
                                         </video>
                                     </div>
@@ -136,45 +143,70 @@
 <script>
     function callAtgPay(e) {
     // e.preventDefault()
+        AtgPayment.pay({
+            //customer's email address
+            email: 'payment@tebentutors.com',
 
-    AtgPayment.pay({
-        //customer's email address
-        email: 'payment@tebentutors.com',
+            //Customer's phone number (Optional)
+            phone: '+2347036331480',
 
-        //Customer's phone number (Optional)
-        phone: '+2347036331480',
+            //customer's description
+            description: 'Pay for video subscription',
 
-        //customer's description
-        description: 'Pay for video subscription',
+            // Amount to pay in naira
+            amount: '{{ $account->amount }}',
 
-        // Amount to pay in naira
-        amount: '{{ $account->amount }}',
+            //Payment reference
+            //If not specified, a reference will be generated for you
+            reference: '',
 
-        //Payment reference
-        //If not specified, a reference will be generated for you
-        reference: '{{ $logo_img }}',
+            // Merchant's aimotget PUBLIC KEY
+            key:'3684121b9a6cb6591d83c83f94f71d698f662a9228cb2285',
 
-        // Merchant's aimotget PUBLIC KEY
-        key:'3684121b9a6cb6591d83c83f94f71d698f662a9228cb2285',
+            //Url to the logo you want displayed on the payment modal
+            logo_url: '{{ $logo_img }}',
 
-        //Url to the logo you want displayed on the payment modal
-        logo_url: '',
+            onclose: function () {
+                //do something when modal is closed
+            },
 
-        onclose: function () {
-            //do something when modal is closed
-        },
+            onerror: function (data) {
+                let reference = data.reference
+                //payment failed, do something with reference
+            },
 
-        onerror: function (data) {
-            let reference = data.reference
-            //payment failed, do something with reference
-        },
+            onsuccess: function (data) {
+                let reference = data.reference
+                //get reference and verify payment before awarding value
+                AtgPaybackProcess(reference);
+            }
+        });
+    }
 
-        onsuccess: function (data) {
-            let reference = data.reference
-            //get reference and verify payment before awarding value
-        }
+
+    function AtgPaybackProcess(reference){
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "{{ route('account.atg_callback') }}",
+            type: "POST",
+            data: {reference:reference},
+                success:function(data){
+                    window.location.href = '';
+                }
+        });
+    }
+
+    $('#downloadForm').submit(function(){
+        $(this).find('button').attr('disabled', true);
+        // alertNotify('Download in progress', "green");
+        setTimeout(function(){
+            window.location.reload(true);
+        },2000);
     })
-
-}
 </script>
 @stop

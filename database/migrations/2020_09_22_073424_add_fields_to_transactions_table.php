@@ -14,7 +14,7 @@ class AddFieldsToTransactionsTable extends Migration
     public function up()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->index()->nullable()->change();
+            $table->unsignedBigInteger('user_id')->nullable()->change();
             $table->unsignedBigInteger('school_account_id')->nullable()->after('user_id');
         });
     }

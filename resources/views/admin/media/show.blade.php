@@ -174,11 +174,6 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-
-
-
-
-
                                                         <div class="form-group">
                                                             <label>Subject</label>
                                                             <select class="form-control" name="subject_id" style="height:45px" aria-required="true">
@@ -193,8 +188,6 @@
                                                                 </p>
                                                             @enderror
                                                         </div>
-
-
                                                     </div>
                                                     <div class="col-md-6">
                                                          <div class="form-group">

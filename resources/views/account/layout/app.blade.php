@@ -59,11 +59,16 @@
                                 <a href="{{ route('index') }}"><i class="ti-home"></i><span>Home page</span></a>
                             </li>
                             <li class="active">
-                            <a href="{{ route('available_books')}}" ><i class="fa fa-user"></i><span>{{ $account->name }}</span></a>
+                                <a href="{{ route('available_books')}}" >#<span>{{ $account->code }}</span></a>
+                            </li>
+                            <li class="active">
+                                <a href="{{ route('available_books')}}" ><i class="fa fa-user"></i><span>{{ $account->name }}</span></a>
                             </li>
                             <li class="active">
                                  <a href="#"><i class="ti-phone"></i><span>Downloads ({{ $account->downloads }})</span></a>
                             </li>
+                            <input type="hidden" id="accountAmount_" value="{{ $account->amount }}">
+                                <input type="hidden" id="atgCallbackUrl_" value="{{ route('account.atg_callback') }}">
                             <li class="active">
                                 <a href="#"><i class="ti-arrow"></i><span>Available ({{ $account->available }})</span></a>
                             </li>
@@ -78,12 +83,12 @@
                                 <a href="#"><i class="ti-clock"></i><span>Term ({{ getTerms($account->term) }})</span></a>
                             </li>
 
-{{--
+
                            <li style="margin-bottom:10vh">
                                 <a href="#" class="logoutbtn "> <i class="ti-alert"></i> Logout</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf
+                                <form id="logout-form" action="{{ route('account.logout') }}" method="POST" style="display: none;"> @csrf
                                 </form>
-                            </li> --}}
+                            </li>
                         </ul>
                     </nav>
                 </div>

@@ -14,7 +14,7 @@ class AddFieldsToPayReceiptsTable extends Migration
     public function up()
     {
         Schema::table('pay_receipts', function (Blueprint $table) {
-            $table->unsignedBigInteger('user_id')->index()->nullable()->change();
+            $table->unsignedBigInteger('user_id')->nullable()->change();
             $table->unsignedBigInteger('school_account_id')->nullable()->after('user_id');
             $table->string('reference',30)->unique()->after('type');
             $table->text('comment')->nullable()->after('reference');

@@ -35,7 +35,10 @@ Route::namespace('Account')->prefix('account')->as('account.')->group(function()
 
     Route::middleware('school_account')->group(function(){
         Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
-        Route::get('download', 'HomeController@download')->name('download');
+        Route::post('logout', 'HomeController@logout')->name('logout');
+        Route::post('download', 'HomeController@download')->name('download');
+        Route::post('atg-callback', 'HomeController@atg_callback')->name('atg_callback');
+        Route::get('/watch-video/{filename}', 'HomeController@watchVideoAttachment')->name('watch_video_attachment');
     });
 });
 
@@ -49,6 +52,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::get('read_file/{file}', 'WebController@read_file')->name('read_file');
+Route::post('/coupon-recharge', 'HomeController@couponRecharge')->name('couponRecharge');
 
 
 
@@ -99,7 +103,6 @@ Route::get('read_file/{file}', 'WebController@read_file')->name('read_file');
 // });
 
     Route::post('/upload-receipt', 'HomeController@uploadreceipt')->name('uploadreceipt');
-    Route::post('/coupon-recharge', 'HomeController@couponRecharge')->name('couponRecharge');
 
 Route::post('/upload-avatar', 'HomeController@uploadAvatar')->name('uploadAvatar');
 Route::post('/complete-profile', 'HomeController@completeProfile')->name('completeProfile');
@@ -149,6 +152,7 @@ Route::group(['middleware'=> ['admin']],function(){
         Route::resource('schools', 'SchoolController');
         Route::resource('schools/accounts', 'SchoolAccountController');
     });
+
 
 });
 

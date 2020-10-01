@@ -41,7 +41,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        // $this->middleware(['auth','verified']);
     }
 
     /**
@@ -332,6 +332,7 @@ class HomeController extends Controller
 
                 $account->status = 1;
                 $account->save();
+                session()->put('school_account' , encrypt($account));
             }
 
             $coupon->save();

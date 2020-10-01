@@ -13,18 +13,20 @@ class CreatePayReceiptsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pay_receipts', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->id();
-            $table->unsignedBigInteger('admin_id')->index()->nullable();
-            $table->unsignedBigInteger('user_id')->index();
-            $table->string('image')->nullable();
-            $table->string('type',20);
-            $table->integer('amount')->nullable();
-            $table->string('status')->default('Pending');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('pay_receipts')) {
+            Schema::create('pay_receipts', function (Blueprint $table) {
+                $table->engine = 'InnoDB';
+                $table->id();
+                $table->unsignedBigInteger('admin_id')->index()->nullable();
+                $table->unsignedBigInteger('user_id')->index();
+                $table->string('image')->nullable();
+                $table->string('type',20);
+                $table->integer('amount')->nullable();
+                $table->string('status')->default('Pending');
+                $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+                $table->timestamps();
+            });
+        }
     }
 
     /**
