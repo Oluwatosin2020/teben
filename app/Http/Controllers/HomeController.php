@@ -315,7 +315,7 @@ class HomeController extends Controller
             }
             else{
                 $account = SchoolAccount::findorfail($request['school_account_id']);
-                if($coupon->amount < $account->iamountd){
+                if($coupon->amount < $account->amount){
                     Session::flash('error_msg','Coupon value is less than required amount!');
                     return redirect()->back();
                 }
