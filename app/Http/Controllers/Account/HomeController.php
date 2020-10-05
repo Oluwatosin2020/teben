@@ -137,6 +137,11 @@ class HomeController extends Controller
             ];
             Transaction::create($recharge);
 
+            $raw = decrypt(session()->get('school_account'));
+            $account = SchoolAccount::findorfail($raw->id);
+            $account->status = 1;
+            $account->save();
+            session()->put('school_account' , encrypt($account));
             session()->flash('success_msg','Recharge Successful!');
             session()->forget('atg_error');
             return response()->json();
