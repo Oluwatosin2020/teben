@@ -99,40 +99,40 @@ class HomeController extends Controller
     public function atg_callback(Request $request){
         $user = auth()->user();
         $reference = $request->reference;
-        if(false){
-            $curl = curl_init();
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => "https://aimtoget.com/payment/verify/".$reference,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => "",
-                CURLOPT_TIMEOUT => 30000,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "POST",
-                // CURLOPT_HTTPHEADER => array(
-                // 	// Set Here Your Requesred Headers
+//         if(false){
+//             $curl = curl_init();
+//             curl_setopt_array($curl, array(
+//                 CURLOPT_URL => "https://aimtoget.com/payment/verify/".$reference,
+//                 CURLOPT_RETURNTRANSFER => true,
+//                 CURLOPT_ENCODING => "",
+//                 CURLOPT_TIMEOUT => 30000,
+//                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//                 CURLOPT_CUSTOMREQUEST => "POST",
+//                 // CURLOPT_HTTPHEADER => array(
+//                 // 	// Set Here Your Requesred Headers
 
-                // ),
-            ));
+//                 // ),
+//             ));
 
-            $response = curl_exec($curl);
-            $err = curl_error($curl);
-            curl_close($curl);
-        }
-        if (false) {
-            echo "cURL Error #:" . $err;
-        } else {
-            $result = json_decode($response);
+//             $response = curl_exec($curl);
+//             $err = curl_error($curl);
+//             curl_close($curl);
+//         }
+//         if (false) {
+//             echo "cURL Error #:" . $err;
+//         } else {
+//             $result = json_decode($response);
 
-            if(empty($result)){
-                session()->flash('error_msg','Error occurred! Couldnt validate reference No. #'.$reference);
-                session()->put('atg_error' , 'Error occurred! Couldnt validate reference No. #'.$reference. ' Call the admin with this reference number to manually verify your payment!');
-                return response()->json();
-            }
+//             if(empty($result)){
+//                 session()->flash('error_msg','Error occurred! Couldnt validate reference No. #'.$reference);
+//                 session()->put('atg_error' , 'Error occurred! Couldnt validate reference No. #'.$reference. ' Call the admin with this reference number to manually verify your payment!');
+//                 return response()->json();
+//             }
 
             $recharge = [
                 'user_id' => $user->id ?? null,
                 'uuid' => $reference,
-                'amount' => $result->data->amount,
+                'amount' => 0,//$result->data->amount,
                 'purpose' => 'Your airtime recharge was successful!',
                 'type' => 'Deposit',
                 'status' => 'Completed',
@@ -147,7 +147,7 @@ class HomeController extends Controller
             session()->flash('success_msg','Recharge Successful!');
             session()->forget('atg_error');
             return response()->json();
-        }
+//         }
     }
 
 
