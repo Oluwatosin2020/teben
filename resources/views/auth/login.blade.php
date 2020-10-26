@@ -1,67 +1,49 @@
-@extends('auth.layout')
-
-@section('title')
-	Login
-@endsection
+@extends('web.layouts.app' , ['title' => 'Login' , 'activePage' => 'login'])
 @section('content')
-<div class="row center">
-    <!--<div class="col-md-2"></div>-->
-    <div class="offset-md-2 col-md-8 bg-white style_area">
-        <div class="row ">
-            <div class="col-md-6">
-                <div class="form_bg_img" style="background-image: url({{ my_asset('web/images/bg_3.jpg') }});"></div>
-                <div class="form_header">
-                    <div class="form_header_text text-center">
-                    <p class="d-none d-md-block into text">Welcome back!</p>
-                        Login
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-6">
-                <div class="form-area mt-2 mt-md-5">
-                    <form action="{{route('login')}}" method="post">@csrf
-                        <div class="form_tab active_tab" id="tab_1" form-tab="1"  tabindex="1">
+  <section class="w3l-login">
+  <div class="w3l-form-36-mian">
+    <div class="container">
+      <div class="logo text-center">
+      </div>
+      <div class="form-inner-cont">
+        <h3>Login</h3>
+        <h6>To continue with Us</h6>
+        <form action="{{ route('login') }}" method="post" class="signin-form" >@csrf
+          <div class="form-input">
+            <input type="text" name="username" placeholder="Email your username" required autofocus>
+            @error('username')
+                <span class="form-input-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+          <div class="form-input">
+            <input type="password" name="password" placeholder="Password" required >
+            @error('password')
+                <span class="form-input-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+          <label class="check-remaind">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+            <p class="remember">Remember me</p>
 
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input class="form-control" type="text" name="username" placeholder="Enter username" value="{{ old('username') }}" required aria-required="true">
-        						@error('username')
-                                    <span class="form-input-error" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+          </label>
 
-                             <div class="form-group">
-                                <label>Password</label>
-                                <input class="form-control" type="password" name="password" placeholder="Enter password" required aria-required="true">
-        						@error('password')
-                                    <span class="form-input-error" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <button type="submit" class="btn btn-sm btn-success mb-2">Login</button>
-                            </div>
-                            <div class="col-md-8 mb-3">
-                                <a href="{{route('register')}}">Don`t have an account?</a>
-                                <!--<a href="{{route('register')}}">Forgot Password?</a>-->
-                            </div>
-                        </div>
-                        <div class="row mt-5 text-center">
-                            <a href="{{route('account.login')}}" class="btn btn-block btn-info mb-2">Log in to video account?</a>
-                        </div>
-
-
-                    </form>
-                </div>
-            </div>
-        </div>
+          <button type="submit" class="btn btn-primary theme-button mt-4">Log in</button>
+          <div class="new-signup">
+            <a href="{{ route('password.request') }}" class="signuplink">Forgot username or password?</a>
+          </div>
+          <div class="signup text-center mt-2">
+            <a href="{{ route('account.login') }}" class="signuplink">Video Account?</a>
+          </div>
+        </form>
+        <p class="signup">Don’t have account yet? <a href="{{ route('register') }}" class="signuplink">Get it now</a></p>
+      </div>
     </div>
-</div>
-@endsection
+  </div>
+</section>
+@stop

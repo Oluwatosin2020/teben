@@ -1,67 +1,45 @@
-@extends('auth.layout')
-
-@section('title')
-	Login
-@endsection
+@extends('web.layouts.app' , ['title' => 'Account Login' , 'activePage' => 'login'])
 @section('content')
-<div class="row center">
 
-    @if (session('status'))
-        <div class="alert alert-success" role="alert">
-            {{ session('status') }}
-        </div>
-    @endif
-
-    <!--<div class="col-md-2"></div>-->
-    <div class="offset-md-2 col-md-8 bg-white style_area">
-        <div class="row ">
-            <div class="col-md-6">
-                <div class="form_bg_img" style="background-image: url({{ my_asset('web/images/bg_3.jpg') }});"></div>
-                <div class="form_header">
-                    <div class="form_header_text text-center">
-                    <p class="d-none d-md-block into text">Hey there, your videos await you!</p>
-                        Login
-                    </div>
+  <section class="w3l-login">
+  <div class="w3l-form-36-mian">
+    <div class="container">
+      <div class="logo text-center">
+      </div>
+      <div class="form-inner-cont">
+        <h3>Video Account</h3>
+        <h6>Login to watch videos</h6>
+        <p>
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
                 </div>
-            </div>
+            @endif
+        </p>
+        <form action="{{ route('account.auth') }}" method="post" class="signin-form" >@csrf
+          <div class="form-input">
+            <input class="form-control" type="text" name="code" placeholder="Enter code" value="{{ old('code') }}" required aria-required="true">
+            @error('code')
+                <span class="form-input-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+          <div class="form-input">
+            <input type="password" name="password" placeholder="Password" required >
+            @error('password')
+                <span class="form-input-error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+          </div>
+          
 
-            <div class="col-md-6">
-                <div class="form-area mt-2 mt-md-5">
-                    <form action="{{route('account.auth')}}" method="post">@csrf
-                        <div class="form_tab active_tab" id="tab_1" form-tab="1"  tabindex="1">
-
-                            <div class="form-group">
-                                <label>Code</label>
-                                <input class="form-control" type="text" name="code" placeholder="Enter code" value="{{ old('code') }}" required aria-required="true">
-        						@error('code')
-                                    <span class="form-input-error" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                             <div class="form-group">
-                                <label>Password</label>
-                                <input class="form-control" type="password" name="password" placeholder="Enter password" required aria-required="true">
-        						@error('password')
-                                    <span class="form-input-error" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-12 text-center mt-3">
-                                <button type="submit" class="btn btn-block btn-success mb-2">Login</button>
-                            </div>
-                        </div>
-
-
-                    </form>
-                </div>
-            </div>
-        </div>
+          <button type="submit" class="btn btn-primary theme-button mt-4">Log in</button>
+        </form>
+        <p class="signup">Don’t have account yet? <a href="{{ route('login') }}" class="signuplink">Log in to main account</a></p>
+      </div>
     </div>
-</div>
-@endsection
+  </div>
+</section>
+@stop

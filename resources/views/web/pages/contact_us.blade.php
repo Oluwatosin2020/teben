@@ -22,7 +22,7 @@
 			<div class="header-section text-center">
 				<h3 class="mb-md-5 mb-4">Fill out the form.
 			</div>
-			<form action="https://sendmail.w3layouts.com/submitForm" method="post" class="">
+			<form action="#" method="post" class="">
 				<div class="main-input">
 					<input type="text" name="w3lName" placeholder="Enter your name" class="contact-input" required="" />
 					<input type="email" name="w3lSender" placeholder="Enter your mail" class="contact-input" required="" />
@@ -45,7 +45,7 @@
 						</div>
 						<div class="contact-details">
 							<h4>Address:</h4>
-							<p>Lorem dolor sit, New York, USA</p>
+							<p>B13, Prestige plaza, Jehovah witnesses junction, Bogije lagos.</p>
 						</div>
 					</div>
 					<div class="contact-info">
@@ -54,8 +54,7 @@
 						</div>
 						<div class="contact-details">
 							<h4>Phone:</h4>
-							<p><a href="tel:+598-658-456">+598-658-456</a></p>
-							<p><a href="tel:+598-658-457">+598-658-457</a></p>
+							<p><a href="tel:+2347033964406">+2347033964406</a></p>
 						</div>
 					</div>
 					<div class="contact-info">
@@ -64,19 +63,14 @@
 						</div>
 						<div class="contact-details">
 							<h4>Mail:</h4>
-							<p><a href="mailto:mail@example.com" class="email">info@teach.com</a></p>
-							<p><a href="mailto:mail@example.com" class="email">teach@support.com</a></p>
+							<p><a href="mailto:info@tebentutors.com" class="email">info@tebentutors.com</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="map">
-		<iframe
-			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001161.424489281!2d-78.01909140705047!3d42.72866436845163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sin!4v1570786994395!5m2!1sen!2sin"
-			frameborder="0" allowfullscreen=""></iframe>
-	</div>
+	
 </section>
 <!-- //contact form -->
 
