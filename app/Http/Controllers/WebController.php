@@ -10,7 +10,7 @@ use App\Teacher;
 class WebController extends Controller
 {
     public function index(){
-        return view('index');
+        return view('web.pages.index');
     }
 
     public function teachers(){
