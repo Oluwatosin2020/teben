@@ -26,14 +26,14 @@
       <!-- /move top -->
   
     <!-- jQuery and Bootstrap JS -->
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="{{ $web_source }}/js/jquery-3.3.1.min.js"></script>
+    <script src="{{ $web_source }}/js/bootstrap.min.js"></script>
   
     <!-- Template JavaScript -->
   
     <!-- stats number counter-->
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/jquery.countup.js"></script>
+    <script src="{{ $web_source }}/js/jquery.waypoints.min.js"></script>
+    <script src="{{ $web_source }}/js/jquery.countup.js"></script>
     <script>
       $('.counter').countUp();
     </script>
@@ -41,7 +41,7 @@
   
   
     <!-- testimonials owlcarousel -->
-    <script src="assets/js/owl.carousel.js"></script>
+    <script src="{{ $web_source }}/js/owl.carousel.js"></script>
   
     <!-- script for owlcarousel -->
     <script>
@@ -125,7 +125,7 @@
     <!-- disable body scroll which navbar is in active -->
   
     <!-- gallery lightbox -->
-    <script src="assets/js/smartphoto.js"></script>
+    <script src="{{ $web_source }}/js/smartphoto.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const sm = new SmartPhoto(".js-img-viwer", {

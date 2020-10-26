@@ -18,8 +18,20 @@ class WebController extends Controller
         return view('teachers',compact('teachers'));
     }
 
-    public function contactus(){
-        return view('contactus');
+    public function about_us(){
+        return view('web.pages.about_us');
+    }
+
+    public function services(){
+        return view('web.pages.services');
+    }
+
+    public function media(){
+        return view('web.pages.media');
+    }
+
+    public function contact_us(){
+        return view('web.pages.contact_us');
     }
 
     public function teacherinfo($uuid){

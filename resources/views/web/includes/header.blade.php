@@ -4,7 +4,7 @@
 		<div class="hero-header-11-content">
 			<div class="container">
 				<nav class="navbar navbar-expand-lg navbar-light py-md-2 py-0 px-0">
-					<a class="navbar-brand" href="{{ route('index') }}"><img src="assets/images/logo-icon.png" alt="" />Skill</a>
+					<a class="navbar-brand" href="{{ route('index') }}"><img src="{{ $logo_img }}" width="50" height="50" alt="" class="d-none" />Teben Tutors</a>
 					<!-- if logo is image enable this   
 				<a class="navbar-brand" href="#{{ route('index') }}">
 						<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
@@ -17,46 +17,28 @@
 
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto">
-							<li class="nav-item active">
+							<li class="nav-item {{ $activePage == "home_page" ? 'active' : ''  }}">
 								<a class="nav-link" href="{{ route('index') }}">Home <span class="sr-only">(current)</span></a>
 							</li>
-							<li class="nav-item @@about-active">
-								<a class="nav-link" href="{{ route('index') }}">About</a>
+							<li class="nav-item {{ $activePage == "about_us" ? 'active' : ''  }}">
+								<a class="nav-link" href="{{ route('about_us') }}">About</a>
 							</li>
-							<li class="nav-item @@services-active">
-								<a class="nav-link" href="services.html">Services</a>
+							<li class="nav-item  {{ $activePage == "services" ? 'active' : ''  }}">
+								<a class="nav-link" href="{{  route('services') }}">Services</a>
 							</li>
-							<li class="nav-item @@courses-active">
-								<a class="nav-link" href="courses.html">Courses</a>
+							<li class="nav-item {{ $activePage == "media" ? 'active' : ''  }}">
+								<a class="nav-link" href="{{ route("media_collection") }}">Media</a>
 							</li>
-							<li class="nav-item dropdown @@dropdown-active">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">
-									Pages
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item  @@gallery-active" href="gallery.html">Gallery</a>
-									<a class="dropdown-item" href="login.html">Login</a>
-									<a class="dropdown-item" href="signup.html">Signup</a>
-									<a class="dropdown-item" href="landing-single.html">Landing Single</a>
-								</div>
+							
+							<li class="nav-item {{ $activePage == "contact_us" ? 'active' : ''  }}">
+								<a class="nav-link" href="{{ route('contact_us') }}">Contact Us</a>
 							</li>
-							<li class="nav-item dropdown @@blog-dropdown-active">
-								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="false">
-									Blog
-								</a>
-								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item @@blog-active" href="blog.html">Blog</a>
-									<a class="dropdown-item @@blog-single-active" href="blog-single.html">Single Post</a>
-								</div>
-							</li>
-							<li class="nav-item @@contact-active">
-								<a class="nav-link" href="contact.html">Contact</a>
+							<li class="nav-item {{ $activePage == "login" ? 'active' : ''  }}">
+								<a class="nav-link" href="{{ route('login') }}">Login</a>
 							</li>
 						</ul>
 						<div class="form-inline ml-lg-3">
-							<a href="signup.html" class="btn btn-primary theme-button">Apply Now</a>
+							<a href="{{ route('register') }}" class="btn btn-primary theme-button">Join Us</a>
 						</div>
 					</div>
 				</nav>

@@ -21,10 +21,10 @@ if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
 
 Route::get('/', 'WebController@index')->name('index');
 Route::get('/teachers', 'WebController@teachers')->name('teachers');
-Route::get('/about-us', 'WebController@teachers')->name('about_us');
-Route::get('/media', 'WebController@media')->name('media');
+Route::get('/about-us', 'WebController@about_us')->name('about_us');
+Route::get('/media-collection', 'WebController@media')->name('media_collection');
 Route::get('/services', 'WebController@services')->name('services');
-Route::get('/contact-us', 'WebController@contactus')->name('contactus');
+Route::get('/contact-us', 'WebController@contact_us')->name('contact_us');
 Route::get('/teacher-information/{uuid}', 'WebController@teacherinfo')->name('teacherinfo');
 Route::get('/lgas/{state}', 'WebController@lgas')->name('lgas');
 // Route::get('/download', 'WebController@download');

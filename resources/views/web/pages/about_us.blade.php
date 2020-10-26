@@ -1,4 +1,4 @@
-@extends('web.layouts.app' , ['title' => 'About Us'])
+@extends('web.layouts.app' , ['title' => 'About Us' , 'activePage' => 'about_us'])
 @section('content')
 <!-- breadcrum -->
 <section class="w3l-skill-breadcrum">
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="col-lg-6 mt-lg-0 mt-5 cwp23-img">
-          <img src="assets/images/g6.jpg" class="img-fluid" alt="" />
+          <img src="{{ $web_source }}/images/g6.jpg" class="img-fluid" alt="" />
         </div>
       </div>
     </div>
@@ -106,11 +106,11 @@
               <div class="card">
                 <div class="card-header p-0 position-relative">
                   <a href="#url" class="zoom d-block">
-                    <img class="card-img-bottom d-block" src="assets/images/g1.jpg" alt="Card image cap">
+                    <img class="card-img-bottom d-block" src="{{ $web_source }}/images/g1.jpg" alt="Card image cap">
                   </a>
                   <div class="author">
                     <div class="author-image">
-                      <img src="assets/images/student2.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
+                      <img src="{{ $web_source }}/images/student2.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
                     </div>
                     <div class="course-title">
                       <a href="#url">Course Title</a>
@@ -142,11 +142,11 @@
               <div class="card">
                 <div class="card-header p-0 position-relative">
                   <a href="#url" class="zoom d-block">
-                    <img class="card-img-bottom d-block" src="assets/images/g2.jpg" alt="Card image cap">
+                    <img class="card-img-bottom d-block" src="{{ $web_source }}/images/g2.jpg" alt="Card image cap">
                   </a>
                   <div class="author">
                     <div class="author-image">
-                      <img src="assets/images/student3.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
+                      <img src="{{ $web_source }}/images/student3.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
                     </div>
                     <div class="course-title">
                       <a href="#url">Course Title</a>
@@ -178,11 +178,11 @@
               <div class="card">
                 <div class="card-header p-0 position-relative">
                   <a href="#url" class="zoom d-block">
-                    <img class="card-img-bottom d-block" src="assets/images/g3.jpg" alt="Card image cap">
+                    <img class="card-img-bottom d-block" src="{{ $web_source }}/images/g3.jpg" alt="Card image cap">
                   </a>
                   <div class="author">
                     <div class="author-image">
-                      <img src="assets/images/student4.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
+                      <img src="{{ $web_source }}/images/student4.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
                     </div>
                     <div class="course-title">
                       <a href="#url">Course Title</a>
@@ -214,11 +214,11 @@
               <div class="card">
                 <div class="card-header p-0 position-relative">
                   <a href="#url" class="zoom d-block">
-                    <img class="card-img-bottom d-block" src="assets/images/g5.jpg" alt="Card image cap">
+                    <img class="card-img-bottom d-block" src="{{ $web_source }}/images/g5.jpg" alt="Card image cap">
                   </a>
                   <div class="author">
                     <div class="author-image">
-                      <img src="assets/images/student1.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
+                      <img src="{{ $web_source }}/images/student1.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
                     </div>
                     <div class="course-title">
                       <a href="#url">Course Title</a>
@@ -281,7 +281,7 @@
       <div class="row">
         <div class="col-lg-4 col-sm-6 mt-5">
           <div class="box16">
-            <a href="#url"><img src="assets/images/student1.jpg" alt="" class="img-fluid" /></a>
+            <a href="#url"><img src="{{ $web_source }}/images/student1.jpg" alt="" class="img-fluid" /></a>
             <div class="box-content">
               <h3 class="title"><a href="#url">Victoria</a></h3>
               <span class="post">Director</span>
@@ -302,7 +302,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 mt-5">
           <div class="box16">
-            <a href="#url"><img src="assets/images/student2.jpg" alt="" class="img-fluid" /></a>
+            <a href="#url"><img src="{{ $web_source }}/images/student2.jpg" alt="" class="img-fluid" /></a>
             <div class="box-content">
               <h3 class="title"><a href="#url">Michael</a></h3>
               <span class="post">Managing Director</span>
@@ -323,7 +323,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 mt-5">
           <div class="box16">
-            <a href="#url"><img src="assets/images/student3.jpg" alt="" class="img-fluid" /></a>
+            <a href="#url"><img src="{{ $web_source }}/images/student3.jpg" alt="" class="img-fluid" /></a>
             <div class="box-content">
               <h3 class="title"><a href="#url">George</a></h3>
               <span class="post">Designer</a></span>
@@ -344,7 +344,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 mt-5">
           <div class="box16">
-            <a href="#url"><img src="assets/images/student4.jpg" alt="" class="img-fluid" /></a>
+            <a href="#url"><img src="{{ $web_source }}/images/student4.jpg" alt="" class="img-fluid" /></a>
             <div class="box-content">
               <h3 class="title"><a href="#url">George</a></h3>
               <span class="post">Designer</a></span>
@@ -365,7 +365,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 mt-5">
           <div class="box16">
-            <a href="#url"><img src="assets/images/student1.jpg" alt="" class="img-fluid" /></a>
+            <a href="#url"><img src="{{ $web_source }}/images/student1.jpg" alt="" class="img-fluid" /></a>
             <div class="box-content">
               <h3 class="title"><a href="#url">Victoria</a></h3>
               <span class="post">Director</span>
@@ -386,7 +386,7 @@
         </div>
         <div class="col-lg-4 col-sm-6 mt-5">
           <div class="box16">
-            <a href="#url"><img src="assets/images/student2.jpg" alt="" class="img-fluid" /></a>
+            <a href="#url"><img src="{{ $web_source }}/images/student2.jpg" alt="" class="img-fluid" /></a>
             <div class="box-content">
               <h3 class="title"><a href="#url">Michael</a></h3>
               <span class="post">Managing Director</span>

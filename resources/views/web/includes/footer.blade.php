@@ -3,7 +3,7 @@
       <div class="container pb-lg-3">
         <div class="row footer-top-29">
           <div class="col-lg-4 col-md-6 footer-list-29 footer-1 mt-md-4">
-            <a class="footer-logo mb-md-3 mb-2" href="#url"><img src="assets/images/logo-icon.png" alt="" />Skill</a>
+            <a class="footer-logo mb-md-3 mb-2" href="#url"><img alt="" />Teben Tutors</a>
             <p>We amplify important ideas in mathematics education to help teachers grow their practice and our profession. Lorem ipsum dolor sit
               amet consectetur adipisicing elit.</p>
           </div>
@@ -21,15 +21,15 @@
             <div class="properties">
               <h6 class="footer-title-29">Recent Post</h6>
               <a class="d-grid twitter-feed" href="blog-single.html">
-                <img src="assets/images/g1.jpg" class="img-fluid rounded" alt="">
+                <img src="{{ $web_source }}/images/g1.jpg" class="img-fluid rounded" alt="">
                 <p>How to get Programming language Cartification in 45 days.</p>
               </a>
               <a class="d-grid twitter-feed" href="blog-single.html">
-                <img src="assets/images/g2.jpg" class="img-fluid rounded" alt="">
+                <img src="{{ $web_source }}/images/g2.jpg" class="img-fluid rounded" alt="">
                 <p>Top class learning from anywhere Lorem ipsum dolor sit amet.</p>
               </a>
               <a class="d-grid twitter-feed" href="blog-single.html">
-                <img src="assets/images/g3.jpg" class="img-fluid rounded" alt="">
+                <img src="{{ $web_source }}/images/g3.jpg" class="img-fluid rounded" alt="">
                 <p>Improving lives through learning Lorem ipsum dolor sit amet.</p>
               </a>
             </div>
@@ -58,7 +58,7 @@
             <a href="#youtube" class="youtube"><span class="fa fa-youtube" aria-hidden="true"></span></a>
           </div>
           <div class="copyright mt-1">
-            <p>&copy; 2020 Skill. All Rights Reserved | Design by <a href="https://w3layouts.com/">W3Layouts</a></p>
+            <p>&copy; 2020 Teben Tutors. All Rights Reserved </p>
           </div>
         </div>
       </div>

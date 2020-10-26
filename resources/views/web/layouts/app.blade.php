@@ -20,6 +20,7 @@
     
   <!-- footer -->
     @include('web.includes.footer')
+    @include('web.includes.script')
 
   </body>
 

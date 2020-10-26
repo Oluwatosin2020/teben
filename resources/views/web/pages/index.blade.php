@@ -1,4 +1,4 @@
-@extends('web.layouts.app' , ['title' => 'Home'])
+@extends('web.layouts.app' , ['title' => 'Home' , 'activePage' => 'home_page'])
 @section('content')
  <!--  Main banner section -->
  <section class="w3l-main-banner">
@@ -42,7 +42,7 @@
         <div class="row">
           <div class="col-md-12 mt-3">
             <div class="grids5-info">
-              <a href="#url" class="d-block zoom"><img src="assets/images/p1.jpg" alt="" class="img-fluid news-image" /></a>
+              <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p1.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
                 <p class="date">Step 01</p>
                 <h4>Join Community</h4>
@@ -57,7 +57,7 @@
         <div class="row">
           <div class="col-md-12 mt-3">
             <div class="grids5-info">
-              <a href="#url" class="d-block zoom"><img src="assets/images/p2.jpg" alt="" class="img-fluid news-image" /></a>
+              <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p2.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
                 <p class="date">Step 02</p>
                 <h4>Learning</h4>
@@ -72,7 +72,7 @@
         <div class="row">
           <div class="col-md-12 mt-3">
             <div class="grids5-info">
-              <a href="#url" class="d-block zoom"><img src="assets/images/p3.jpg" alt="" class="img-fluid news-image" /></a>
+              <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p3.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
                 <p class="date">Step 03</p>
                 <h4>Get the Best Job</h4>
@@ -87,7 +87,7 @@
         <div class="row">
           <div class="col-md-12 mt-3">
             <div class="grids5-info">
-              <a href="#url" class="d-block zoom"><img src="assets/images/p4.jpg" alt="" class="img-fluid news-image" /></a>
+              <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p4.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
                 <p class="date">Step 04</p>
                 <h4>Community</h4>
@@ -152,7 +152,7 @@
           <div class="col-md-6">
             <div class="feature-16-gd">
               <div class="icon">
-                <img src="assets/images/seminors.png" class="img-fluid" alt="" />
+                <img src="{{ $web_source }}/images/seminors.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
                 <h4 class="mt-4 mb-2">Group Seminars</h4>
@@ -171,7 +171,7 @@
           <div class="col-md-6 mt-md-0 mt-4">
             <div class="feature-16-gd">
               <div class="icon">
-                <img src="assets/images/course.png" class="img-fluid" alt="" />
+                <img src="{{ $web_source }}/images/course.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
                 <h4 class="mt-4 mb-2">Trending Courses</h4>
@@ -190,7 +190,7 @@
           <div class="col-md-6 mt-4">
             <div class="feature-16-gd">
               <div class="icon">
-                <img src="assets/images/library.png" class="img-fluid" alt="" />
+                <img src="{{ $web_source }}/images/library.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
                 <h4 class="mt-4 mb-2">Large Library</h4>
@@ -209,7 +209,7 @@
           <div class="col-md-6 mt-4">
             <div class="feature-16-gd">
               <div class="icon">
-                <img src="assets/images/teacher.png" class="img-fluid" alt="" />
+                <img src="{{ $web_source }}/images/teacher.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
                 <h4 class="mt-4 mb-2">Expert Teachers</h4>
@@ -258,7 +258,7 @@
             <div class="item">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
-                  <img src="assets/images/student1.jpg" class="img-fluid testimonial-img" alt="client image">
+                  <img src="{{ $web_source }}/images/student1.jpg" class="img-fluid testimonial-img" alt="client image">
                 </div>
                 <div class="message">
                   <span class="fa fa-quote-left" aria-hidden="true"></span>
@@ -275,7 +275,7 @@
             <div class="item">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
-                  <img src="assets/images/student2.jpg" class="img-fluid testimonial-img" alt="client image">
+                  <img src="{{ $web_source }}/images/student2.jpg" class="img-fluid testimonial-img" alt="client image">
                 </div>
                 <div class="message">
                   <span class="fa fa-quote-left" aria-hidden="true"></span>
@@ -292,7 +292,7 @@
             <div class="item">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
-                  <img src="assets/images/student3.jpg" class="img-fluid testimonial-img" alt="client image">
+                  <img src="{{ $web_source }}/images/student3.jpg" class="img-fluid testimonial-img" alt="client image">
                 </div>
                 <div class="message">
                   <span class="fa fa-quote-left" aria-hidden="true"></span>
@@ -309,7 +309,7 @@
             <div class="item">
               <div class="slider-info mt-lg-4 mt-3">
                 <div class="img-circle">
-                  <img src="assets/images/student4.jpg" class="img-fluid testimonial-img" alt="client image">
+                  <img src="{{ $web_source }}/images/student4.jpg" class="img-fluid testimonial-img" alt="client image">
                 </div>
                 <div class="message">
                   <span class="fa fa-quote-left" aria-hidden="true"></span>
