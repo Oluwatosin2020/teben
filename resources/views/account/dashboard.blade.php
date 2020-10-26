@@ -164,7 +164,7 @@
             key:'3684121b9a6cb6591d83c83f94f71d698f662a9228cb2285',
 
             //Url to the logo you want displayed on the payment modal
-            logo_url: '{{ $logo_img }}',
+            logo_url: 'https://tebentutors.com/public/logo.png',
 
             onclose: function () {
                 //do something when modal is closed
