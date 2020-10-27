@@ -11,10 +11,10 @@
                <h3 class="banner-text">
                  Learn Anytime, Anywhere.<br> Accelerate Your Future.
                </h3>
-               <p class="my-4 mb-sm-5">We believe everyone has the capacity to be creative. Skill is a place where people develop their own potential.
+               <p class="my-4 mb-sm-5">We believe everyone has the capacity to be creative.This is where you can develop and promote your potentials.
                </p><br>
-               <a href="signup.html" class="btn btn-primary theme-button mr-3">Become a Teacher</a>
-               <a href="courses.html" class="btn btn-outline-primary theme-button">Courses</a>
+               <a href="signup.html" class="btn btn-primary theme-button mr-3">Download Videos</a>
+               <a href="Upload Media.html" class="btn btn-outline-primary theme-button">Upload Media</a>
              </div>
            </div>
          </div>
@@ -34,8 +34,8 @@
     <div class="container py-lg-3">
       <div class="header-section text-center">
         <h3>How we Teach?</h3>
-        <p class="mt-3 mb-5">We amplify important ideas in mathematics education to help teachers grow their practice and our profession.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim beatae, facilis voluptatibus repellendus totam autem?</p>
+        <p class="mt-3 mb-5">For Students: We touch every sensitive aspect of all strenuous topics in all the core subjects with easy learn along concept.
+          For Teachers: We amplify important ideas in education to help teachers grow their practice and our profession?</p>
         <a href="signup.html" class="btn btn-primary theme-button">Join our Community</a>
       </div>
       <div class="list-single-view mt-5">
@@ -44,10 +44,10 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p1.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">Step 01</p>
-                <h4>Join Community</h4>
-                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                  reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                <p class="date">Tutorial Videos</p>
+                <h4>Become a Tutor</h4>
+                <p class="blog-text"> For your homework, self practise and Examinations preparation
+                   We have you in mind. Download the topic here.</p>
               </div>
             </div>
           </div>
@@ -59,10 +59,10 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p2.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">Step 02</p>
-                <h4>Learning</h4>
-                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                  reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                <p class="date">WAEC/NECO/GCE</p>
+                <h4>Learning with our Videos</h4>
+                <p class="blog-text">Study with our tutorial Videos and clear your papers once!
+                  Meet the best hands at our Centre for an unforgettable imprint in excellence.</p>
               </div>
             </div>
           </div>
@@ -74,10 +74,9 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p3.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">Step 03</p>
-                <h4>Get the Best Job</h4>
-                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                  reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                <p class="date">IJMB/JUPEB/Cambridge A'Levels</p>
+                <h4>Get the Best Tutorials </h4>
+                <p class="blog-text">Register with us for outstanding results.</p> 
               </div>
             </div>
           </div>
@@ -89,10 +88,10 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p4.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">Step 04</p>
-                <h4>Community</h4>
-                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                  reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                <p class="date">Download Media</p>
+                <h4>Drop your Comment</h4>
+                <p class="blog-text">JAMB UTME and Post UTME 
+                  We make marks of history! .</p>
               </div>
             </div>
           </div>
@@ -113,7 +112,7 @@
       <div class="col-md-3 col-6 stats_info counter_grid">
         <span class="fa fa-smile-o"></span>
         <p class="counter">196</p>
-        <h4>Complete Courses</h4>
+        <h4>SAT</h4>
       </div>
       <div class="col-md-3 col-6 stats_info counter_grid1">
         <span class="fa fa-graduation-cap"></span>
@@ -143,9 +142,9 @@
   <div class="feature-16-main py-5">
     <div class="container py-lg-3">
       <div class="header-section text-center">
-        <h3>Our Programs</h3>
-        <p class="mt-3 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum cumque distinctio eveniet tempore delectus
-          totam ratione repudiandae ipsum vel molestias?</p>
+        <h3>IGCSE</h3>
+        <p class="mt-3 mb-5">IGCSE, TOEFL, GMAT, IELTS semm uneasy?
+          Get them all screwed here?</p>
       </div>
       <div class="features-grids">
         <div class="row">
@@ -155,14 +154,14 @@
                 <img src="{{ $web_source }}/images/seminors.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
-                <h4 class="mt-4 mb-2">Group Seminars</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                <h4 class="mt-4 mb-2">Academic Counseling</h4>
+                <p>We provide commendable academic and moral counseling for right choice in your career </p>
                 <ul>
                   <li>Our job is to make your life easier.</li>
                   <li>Experience students as it should be.</li>
                   <li>Doing the right thing,
                     at the right time.</li>
-                  <li>Explore The World Of Our Graduates</li>
+                  <li>Position our students uprightly</li>
                 </ul>
                 <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
               </div>
@@ -174,14 +173,14 @@
                 <img src="{{ $web_source }}/images/course.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
-                <h4 class="mt-4 mb-2">Trending Courses</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                <h4 class="mt-4 mb-2">Updated Topics</h4>
+                <p> we made available updated information filled lectures in all the topics. Find out.</p>
                 <ul>
-                  <li>Our job is to make your life easier.</li>
-                  <li>Experience students as it should be.</li>
-                  <li>Doing the right thing,
-                    at the right time.</li>
-                  <li>Explore The World Of Our Graduates</li>
+                  <li>Our job is to make learning easier.</li>
+                  <li>Help students acclimatized to learning</li>
+                  <li>Imbibe the culture of learning in students
+                    at all times.</li>
+                  <li>Help the admission seekers gain admission</li>
                 </ul>
                 <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
               </div>
@@ -193,14 +192,14 @@
                 <img src="{{ $web_source }}/images/library.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
-                <h4 class="mt-4 mb-2">Large Library</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                <h4 class="mt-4 mb-2">Upload Book Media</h4>
+                <p>This is an avenue to Promote your talent and writing skill.</p>
                 <ul>
-                  <li>Our job is to make your life easier.</li>
-                  <li>Experience students as it should be.</li>
-                  <li>Doing the right thing,
-                    at the right time.</li>
-                  <li>Explore The World Of Our Graduates</li>
+                  <li>You can upload a book, articles, comics in pdf/jpeg format.</li>
+                  <li>invite people to maximize your audience.</li>
+                  <li>You get paid per View or Download,
+                    From the very first day.</li>
+                  <li>Promote your talent with less stress</li>
                 </ul>
                 <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
               </div>
@@ -212,14 +211,14 @@
                 <img src="{{ $web_source }}/images/teacher.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
-                <h4 class="mt-4 mb-2">Expert Teachers</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                <h4 class="mt-4 mb-2">Your Benefits</h4>
+                <p>Give away for regular visitors. Don't be left out.</p>
                 <ul>
-                  <li>Our job is to make your life easier.</li>
-                  <li>Experience students as it should be.</li>
-                  <li>Doing the right thing,
-                    at the right time.</li>
-                  <li>Explore The World Of Our Graduates</li>
+                  <li>Valuable gifts.</li>
+                  <li>Scholarship.</li>
+                  <li>Prize and Awards
+                   </li>
+                  <li></li>
                 </ul>
                 <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
               </div>
