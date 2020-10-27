@@ -28,7 +28,7 @@
             <div class="column">
               <span class="fa fa-smile-o" aria-hidden="true"></span>
               <a href="services.html">Group Seminars</a>
-              <p>consectetur adipisicing elit, sed do eiusmod tempor </p>
+              <p>sicing elit, sed do eiusmod tempor </p>
             </div>
             <div class="column">
               <span class="fa fa-graduation-cap" aria-hidden="true"></span>
