@@ -11,10 +11,10 @@
                <h3 class="banner-text">
                  Learn Anytime, Anywhere.<br> Accelerate Your Future.
                </h3>
-               <p class="my-4 mb-sm-5">We believe everyone has the capacity to be creative. Skill is a place where people develop their own potential.
+               <p class="my-4 mb-sm-5">We believe everyone has the capacity to be creative. This is where you can develop your own potential.
                </p><br>
-               <a href="signup.html" class="btn btn-primary theme-button mr-3">Become a Teacher</a>
-               <a href="courses.html" class="btn btn-outline-primary theme-button">Courses</a>
+               <a href="signup.html" class="btn btn-primary theme-button mr-3">Become a Tutor</a>
+               <a href="videos.html" class="btn btn-outline-primary theme-button">videos</a>
              </div>
            </div>
          </div>
@@ -34,9 +34,9 @@
     <div class="container py-lg-3">
       <div class="header-section text-center">
         <h3>How we Teach?</h3>
-        <p class="mt-3 mb-5">We amplify important ideas in mathematics education to help teachers grow their practice and our profession.
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim beatae, facilis voluptatibus repellendus totam autem?</p>
-        <a href="signup.html" class="btn btn-primary theme-button">Join our Community</a>
+        <p class="mt-3 mb-5">We amplify important ideas in education to help students grow in their studies.
+          Teachers are given the opportunity to develop in their profession through our resources?</p>
+        <a href="signup.html" class="btn btn-primary theme-button">Download Lessons</a>
       </div>
       <div class="list-single-view mt-5">
         <div class="row">
@@ -44,10 +44,10 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p1.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">Step 01</p>
-                <h4>Join Community</h4>
-                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                  reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                <p class="date">Students Help</p>
+                <h4>Download any Topic</h4>
+                <p class="blog-text"> We have hundreds of topics from each relevant subjects available for free download
+                  We have all first term topics covered.</p>
               </div>
             </div>
           </div>
@@ -59,10 +59,10 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p2.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">Step 02</p>
+                <p class="date">For Self Development</p>
                 <h4>Learning</h4>
-                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                  reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                <p class="blog-text"> For Assignment, Practices and Examinations preparations; we have made it easier for students 
+                  To find solutions to the challenges of difficult tasks. Our video tutorials can serve you better.</p>
               </div>
             </div>
           </div>
@@ -74,10 +74,10 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p3.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">Step 03</p>
-                <h4>Get the Best Job</h4>
-                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                  reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                <p class="date">For Examinations</p>
+                <h4>Get the Best Tutor</h4>
+                <p class="blog-text">You may want Direct Teaching for your examination or private lesson. We have competent hands. 
+                  Register as a parent and make your Request</p>
               </div>
             </div>
           </div>
@@ -89,10 +89,10 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p4.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">Step 04</p>
-                <h4>Community</h4>
-                <p class="blog-text">Lorem ipsum dolor sit, icing elit. Nemo veritatis omnis quae quaerat totam culpa odit repellendus
-                  reiciendis, aliquid vero, necessitatibus aliquid iure illum quis maxime ducimus veritatis enim.</p>
+                <p class="date">Admission</p>
+                <h4>All Schools</h4>
+                <p class="blog-text">We can help you secure admission in the institution of your choice. 
+                  Our guarantee is certain</p>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@
       <div class="col-md-3 col-6 stats_info counter_grid">
         <span class="fa fa-smile-o"></span>
         <p class="counter">196</p>
-        <h4>Complete Courses</h4>
+        <h4>Request a Tutor</h4>
       </div>
       <div class="col-md-3 col-6 stats_info counter_grid1">
         <span class="fa fa-graduation-cap"></span>
@@ -144,8 +144,8 @@
     <div class="container py-lg-3">
       <div class="header-section text-center">
         <h3>Our Programs</h3>
-        <p class="mt-3 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum cumque distinctio eveniet tempore delectus
-          totam ratione repudiandae ipsum vel molestias?</p>
+        <p class="mt-3 mb-5">We handle lectures and registrations of examinations 
+For both local and international universities and colleges?</p>
       </div>
       <div class="features-grids">
         <div class="row">
@@ -155,14 +155,13 @@
                 <img src="{{ $web_source }}/images/seminors.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
-                <h4 class="mt-4 mb-2">Group Seminars</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                <h4 class="mt-4 mb-2">Register with Us</h4>
+                <p>Local Examinations.</p>
                 <ul>
-                  <li>Our job is to make your life easier.</li>
-                  <li>Experience students as it should be.</li>
-                  <li>Doing the right thing,
-                    at the right time.</li>
-                  <li>Explore The World Of Our Graduates</li>
+                  <li>NECO, GCE.</li>
+                  <li>NABTEB.</li>
+                  <li>JAMB UTME and NDA</li>
+                  <li>JUPEB</li>
                 </ul>
                 <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
               </div>
@@ -174,16 +173,15 @@
                 <img src="{{ $web_source }}/images/course.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
-                <h4 class="mt-4 mb-2">Trending Courses</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                <h4 class="mt-4 mb-2">International Examinations</h4>
+                <p>Registrations and Lectures</p>
                 <ul>
-                  <li>Our job is to make your life easier.</li>
-                  <li>Experience students as it should be.</li>
-                  <li>Doing the right thing,
-                    at the right time.</li>
-                  <li>Explore The World Of Our Graduates</li>
+                  <li>WAEC,GCE.</li>
+                  <li>SAT, IGCSE.</li>
+                  <li>Cambridge A'Level</li>
+                  <li>TOEFL, GMAT, IELTS</li>
                 </ul>
-                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                <a href="services.html" class="btn btn-primary theme-button mt-4">Consult Us</a>
               </div>
             </div>
           </div>
@@ -193,16 +191,16 @@
                 <img src="{{ $web_source }}/images/library.png" class="img-fluid" alt="" />
               </div>
               <div class="feature-16-gd-info">
-                <h4 class="mt-4 mb-2">Large Library</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                <h4 class="mt-4 mb-2">Academic Counseling</h4>
+                <p>We provide a materialistic moral and academic counseling support.</p>
                 <ul>
-                  <li>Our job is to make your life easier.</li>
-                  <li>Experience students as it should be.</li>
+                  <li>choosing a life career becomes easier.</li>
+                  <li>Save guard outstanding performances.</li>
                   <li>Doing the right thing,
                     at the right time.</li>
-                  <li>Explore The World Of Our Graduates</li>
+                  <li>Encourage self responsibility</li>
                 </ul>
-                <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
+                <a href="services.html" class="btn btn-primary theme-button mt-4">Request Counseling</a>
               </div>
             </div>
           </div>
@@ -213,13 +211,12 @@
               </div>
               <div class="feature-16-gd-info">
                 <h4 class="mt-4 mb-2">Expert Teachers</h4>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. In itaque vel libero.</p>
+                <p>Our teachers are experienced and intelligent.</p>
                 <ul>
-                  <li>Our job is to make your life easier.</li>
-                  <li>Experience students as it should be.</li>
-                  <li>Doing the right thing,
-                    at the right time.</li>
-                  <li>Explore The World Of Our Graduates</li>
+                  <li>To make learning convenient and easy.</li>
+                  <li>Enlightment.</li>
+                  <li>Newly updated information.</li>
+                  <li>Success Guarantee</li>
                 </ul>
                 <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
               </div>
@@ -262,12 +259,10 @@
                 </div>
                 <div class="message">
                   <span class="fa fa-quote-left" aria-hidden="true"></span>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
-                    officia quod quasi necessitatibus perspiciatis Harum error provident
-                    quibusdam tenetur.</p>
+                  <p>Teben Tutors Helped me to secure admission into LASU without delay.</p>
                   <div class="name mt-4">
-                    <h4>Adam Ster</h4>
-                    <p>Designation goes here</p>
+                    <h4>Oyindamola</h4>
+                    <p>Student in LASU</p>
                   </div>
                 </div>
               </div>
@@ -279,12 +274,11 @@
                 </div>
                 <div class="message">
                   <span class="fa fa-quote-left" aria-hidden="true"></span>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
-                    officia quod quasi necessitatibus perspiciatis Harum error provident
-                    quibusdam tenetur.</p>
+                  <p>I scored 304 in my JAMB UTME 2020. I can't thank you less Teben Tutors
+the teachers are wonderful</p>
                   <div class="name mt-4">
-                    <h4>Dennis Jack</h4>
-                    <p>Designation goes here</p>
+                    <h4>Ikhide Abraham</h4>
+                    <p>JABITE 2020</p>
                   </div>
                 </div>
             </div>
@@ -296,12 +290,10 @@
                 </div>
                 <div class="message">
                   <span class="fa fa-quote-left" aria-hidden="true"></span>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
-                    officia quod quasi necessitatibus perspiciatis Harum error provident
-                    quibusdam tenetur.</p>
+                  <p>Teben Tutors tought me well. I scored 302 in my JAMB 2020.</p>
                   <div class="name mt-4">
-                    <h4>Camillae</h4>
-                    <p>Designation goes here</p>
+                    <h4>Uwagbale George</h4>
+                    <p>JAMBITes 2020</p>
                   </div>
                 </div>
               </div>
@@ -313,12 +305,11 @@
                 </div>
                 <div class="message">
                   <span class="fa fa-quote-left" aria-hidden="true"></span>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea sit id accusantium
-                    officia quod quasi necessitatibus perspiciatis Harum error provident
-                    quibusdam tenetur.</p>
+                  <p>I never knew I could gain admission with my low scores in JAMB. Thanks to Teben Tutors.
+The tutorial really helped me</p>
                   <div class="name mt-4">
-                    <h4>Charlotte</h4>
-                    <p>Designation goes here</p>
+                    <h4>Magnus</h4>
+                    <p>Jambites</p>
                   </div>
                 </div>
               </div>
