@@ -21,29 +21,29 @@
       <div class="row cwp23-content align-items-center">
         <div class="col-lg-6 cwp23-text">
           <div class="cwp23-title">
-            <h3>Welcome to the
-              Professional Education Theme! </h3>
+            <h3>Welcome to the Outstanding 
+              Student Platform! </h3>
           </div>
           <div class="cwp23-text-cols">
             <div class="column">
               <span class="fa fa-smile-o" aria-hidden="true"></span>
-              <a href="services.html">Group Seminars</a>
-              <p>sicing elit, sed do eiusmod tempor </p>
+              <a href="services.html">Private Lectures</a>
+              <p>We make the students our utmost priority in our teachings</p>
             </div>
             <div class="column">
               <span class="fa fa-graduation-cap" aria-hidden="true"></span>
-              <a href="services.html">Trending Courses</a>
-              <p>consectetur adipisicing elit, sed do eiusmod tempor </p>
+              <a href="services.html">Exam Registrations</a>
+              <p>We help student register for internal and External Examinations</p>
             </div>
             <div class="column">
               <span class="fa fa-history" aria-hidden="true"></span>
-              <a href="services.html">Large Library</a>
-              <p>consectetur adipisicing elit, sed do eiusmod tempor </p>
+              <a href="services.html">Results</a>
+              <p>We have excellent records in sequence of exams</p>
             </div>
             <div class="column">
               <span class="fa fa-users" aria-hidden="true"></span>
-              <a href="services.html">Expert Teachers</a>
-              <p>consectetur adipisicing elit, sed do eiusmod tempor </p>
+              <a href="services.html">Job Opportunity</a>
+              <p>We provide teaching services that creates room to work within and outside our institution</p>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
       <div class="col-md-3 col-6 stats_info counter_grid2 mt-md-0 mt-5">
         <span class="fa fa-users"></span>
         <p class="counter">890</p>
-        <h4>Students Enrolled</h4>
+        <h4>Students online</h4>
       </div>
     </div>
   </div>
@@ -96,7 +96,7 @@
   <div class="blog py-5" id="courses">
     <div class="container py-lg-5">
       <div class="header-section text-center">
-        <h3 class="mb-2">Various courses to choose from</h3>
+        <h3 class="mb-2">Various topics to choose from</h3>
       </div>
       
       <div class="row mt-md-5 mt-4">
@@ -113,17 +113,17 @@
                       <img src="{{ $web_source }}/images/student2.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
                     </div>
                     <div class="course-title">
-                      <a href="#url">Course Title</a>
+                      <a href="#url">click to view</a>
                     </div>
                   </div>
                 </div>
                 <div class="card-body course-details">
                   <div class="price-review d-flex justify-content-between mb-1align-items-center">
-                    <p>$149</p>
+                    <p>Download</p>
                     <a href="#url" class="reviews d-inline-block">(56 Reviews)</a>
                   </div>
-                  <a href="#url" class="course-desc">At vero eos et accusam et
-                    justo uo dolores</a>
+                  <a href="#url" class="course-desc">Don't be discouraged by your weaknesses 
+                   Learn until you master</a>
                 </div>
                 <div class="card-footer course-price-view">
                   <ul class="blog-list">
@@ -149,17 +149,17 @@
                       <img src="{{ $web_source }}/images/student3.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
                     </div>
                     <div class="course-title">
-                      <a href="#url">Course Title</a>
+                      <a href="#url">Click to view</a>
                     </div>
                   </div>
                 </div>
                 <div class="card-body course-details">
                   <div class="price-review d-flex justify-content-between mb-1align-items-center">
-                    <p>$149</p>
+                    <p>Download</p>
                     <a href="#url" class="reviews d-inline-block">(56 Reviews)</a>
                   </div>
-                  <a href="#url" class="course-desc">At vero eos et accusam et
-                    justo uo dolores</a>
+                  <a href="#url" class="course-desc">Don't be discouraged by your weaknesses 
+                   Learn until you master</a>
                 </div>
                 <div class="card-footer course-price-view">
                   <ul class="blog-list">
@@ -185,17 +185,17 @@
                       <img src="{{ $web_source }}/images/student4.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
                     </div>
                     <div class="course-title">
-                      <a href="#url">Course Title</a>
+                      <a href="#url">Click to View</a>
                     </div>
                   </div>
                 </div>
                 <div class="card-body course-details">
                   <div class="price-review d-flex justify-content-between mb-1align-items-center">
-                    <p>$149</p>
+                    <p>Download</p>
                     <a href="#url" class="reviews d-inline-block">(56 Reviews)</a>
                   </div>
-                  <a href="#url" class="course-desc">At vero eos et accusam et
-                    justo uo dolores</a>
+                  <a href="#url" class="course-desc">Don't be discouraged by your weaknesses 
+                   Learn until you master</a>
                 </div>
                 <div class="card-footer course-price-view">
                   <ul class="blog-list">
@@ -221,17 +221,17 @@
                       <img src="{{ $web_source }}/images/student1.jpg" class="img-fluid rounded-circle" title="Adam Ster" alt="author image">
                     </div>
                     <div class="course-title">
-                      <a href="#url">Course Title</a>
+                      <a href="#url">Click to View</a>
                     </div>
                   </div>
                 </div>
                 <div class="card-body course-details">
                   <div class="price-review d-flex justify-content-between mb-1align-items-center">
-                    <p>$149</p>
+                    <p>Download</p>
                     <a href="#url" class="reviews d-inline-block">(56 Reviews)</a>
                   </div>
-                  <a href="#url" class="course-desc">At vero eos et accusam et
-                    justo uo dolores</a>
+                  <a href="#url" class="course-desc">Don't be discouraged by your weaknesses 
+                   Learn until you master</a>
                 </div>
                 <div class="card-footer course-price-view">
                   <ul class="blog-list">
@@ -274,8 +274,8 @@
       <div class="wthree-title">
         <div class="header-section text-center">
           <h3 class="mb-2">Meet Our Teachers</h3>
-          <p>Vestibulum volutpat non eros ut vulputate. Nunc id risus accumsan Donec
-            mi nulla, auctor nec sem a, ornare auctor mi.</p>
+          <p>Our teachers are well refined, experienced and eloquent;
+            They teach with dexterity, and produce best outcome.</p>
         </div>
       </div>
       <div class="row">
@@ -412,8 +412,8 @@
 <!-- //team -->
  <section class="w3l-quote py-5">
     <div class="container py-lg-3">
-      <h3>Want to Join?</h3>
-      <p>Lorem ipsum dolor sit amet elit. Nisi facere reprehenderit!</p>
+      <h3>Want a Tutor?</h3>
+      <p>You are in the right place!</p>
       <a href="contact.html" class="btn btn-secondary theme-button">Become a Teacher</a>
       <a href="signup.html" class="btn btn-outline-secondary theme-button ml-2">Sign Up</a>
     </div>

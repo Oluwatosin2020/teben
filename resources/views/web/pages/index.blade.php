@@ -11,7 +11,7 @@
                <h3 class="banner-text">
                  Learn Anytime, Anywhere.<br> Accelerate Your Future.
                </h3>
-               <p class="my-4 mb-sm-5">We believe everyone has the capacity to be creative. This is where you can develop your own potential.
+               <p class="my-4 mb-sm-5">We believe everyone has the capacity to be creative. This is where you can promote your own potential.
                </p><br>
                <a href="signup.html" class="btn btn-primary theme-button mr-3">Become a Tutor</a>
                <a href="videos.html" class="btn btn-outline-primary theme-button">videos</a>
@@ -34,7 +34,7 @@
     <div class="container py-lg-3">
       <div class="header-section text-center">
         <h3>How we Teach?</h3>
-        <p class="mt-3 mb-5">We amplify important ideas in education to help students grow in their studies.
+        <p class="mt-3 mb-5">We amplify important ideas in education to help students grow in their studies and talents.
           Teachers are given the opportunity to develop in their profession through our resources?</p>
         <a href="signup.html" class="btn btn-primary theme-button">Download Lessons</a>
       </div>
@@ -46,7 +46,7 @@
               <div class="blog-info">
                 <p class="date">Students Help</p>
                 <h4>Download any Topic</h4>
-                <p class="blog-text"> We have hundreds of topics from each relevant subjects available for free download
+                <p class="blog-text"> We have hundreds of topics from each of the relevant subjects available for free download
                   We have all first term topics covered.</p>
               </div>
             </div>
@@ -59,10 +59,10 @@
             <div class="grids5-info">
               <a href="#url" class="d-block zoom"><img src="{{ $web_source }}/images/p2.jpg" alt="" class="img-fluid news-image" /></a>
               <div class="blog-info">
-                <p class="date">For Self Development</p>
+                <p class="date">Student's Self Development</p>
                 <h4>Learning</h4>
                 <p class="blog-text"> For Assignment, Practices and Examinations preparations; we have made it easier for students 
-                  To find solutions to the challenges of difficult tasks. Our video tutorials can serve you better.</p>
+                  to find solutions to difficult tasks challenge. Our video tutorials can serve you better.</p>
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@
                 <p class="date">Admission</p>
                 <h4>All Schools</h4>
                 <p class="blog-text">We can help you secure admission in the institution of your choice. 
-                  Our guarantee is certain</p>
+                  Your success is certain</p>
               </div>
             </div>
           </div>
@@ -216,7 +216,7 @@ For both local and international universities and colleges?</p>
                   <li>To make learning convenient and easy.</li>
                   <li>Enlightment.</li>
                   <li>Newly updated information.</li>
-                  <li>Success Guarantee</li>
+                  <li>Success Guaranteed</li>
                 </ul>
                 <a href="services.html" class="btn btn-primary theme-button mt-4">Learn more</a>
               </div>
@@ -233,10 +233,10 @@ For both local and international universities and colleges?</p>
     <div class="container">
       <div class="middle-section">
         <div class="section-width">
-          <h2>Start your Business today with this professional template.</h2>
+          <h2>Start making money from here.Invite people to watch a. D download your videos and you get paid</h2>
         </div>
         <div class="link-list-menu">
-            <p class="mb-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae sapiente facere amet quas quae, inventore, dolore modi, delectus illum velit magni quod blanditiis nam quasi perspiciatis. Quod cupiditate eum sit!</p>
+            <p class="mb-5">We have you in mind. Make money while you watch or download, Make Money when you teach, Make money when you Upload your personal videos. We lucrative for you!</p>
             <a href="about.html" class="btn btn-outline-light btn-more">About Us</a>
         </div>
       </div>
@@ -293,7 +293,7 @@ the teachers are wonderful</p>
                   <p>Teben Tutors tought me well. I scored 302 in my JAMB 2020.</p>
                   <div class="name mt-4">
                     <h4>Uwagbale George</h4>
-                    <p>JAMBITes 2020</p>
+                    <p>JAMBITE 2020</p>
                   </div>
                 </div>
               </div>
@@ -309,7 +309,7 @@ the teachers are wonderful</p>
 The tutorial really helped me</p>
                   <div class="name mt-4">
                     <h4>Magnus</h4>
-                    <p>Jambites</p>
+                    <p>JABITE 2020</p>
                   </div>
                 </div>
               </div>
@@ -345,7 +345,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>We denounce with righteous?</h2>
+                    <h2>Tips on Biology?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam iste minima autem.</p>
@@ -353,7 +353,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>At vero eos iusto odio ducimus qui?</h2>
+                    <h2>Tips on English Language?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
@@ -362,14 +362,14 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>But I must explain to you how all this idea?</h2>
+                    <h2>Tips on Literatures in English</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis autem.</p>
                   </li>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>Sed ut perspiciatis unde omnis?</h2>
+                    <h2>Tips on Physics</h2>
                     <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
                       voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
@@ -377,7 +377,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
+                    <h2>Tips on Chemistry</h2>
                     <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
                       voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
@@ -385,7 +385,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>There are many variations of passages but the majority?</h2>
+                    <h2>Tips on Mathematics</h2>
                     <p>Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda, incidunt officiis eaque iste minima autem.</p>
@@ -393,14 +393,14 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>But I must explain to you how all this idea?</h2>
+                    <h2>Tips on Economics</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis autem.</p>
                   </li>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>Sed ut perspiciatis unde omnis?</h2>
+                    <h2>Tips on Science Courses</h2>
                     <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
                       voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
@@ -416,14 +416,14 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>But I must explain to you how all this idea?</h2>
+                    <h2>Tips on Social Science Courses</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis autem.</p>
                   </li>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>At vero eos iusto odio ducimus qui?</h2>
+                    <h2>Tips on Art Courses</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
@@ -432,7 +432,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>Sed ut perspiciatis unde omnis?</h2>
+                    <h2>General Academic Tips</h2>
                     <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
                       voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
@@ -440,7 +440,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
+                    <h2>Causes of Failure in Examinations</h2>
                     <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
                       voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
@@ -448,7 +448,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>We denounce with righteous?</h2>
+                    <h2>Which Science Subjects are Essential for my Admision?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam iste minima autem.</p>
@@ -456,14 +456,14 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>But I must explain to you how all this idea?</h2>
+                    <h2>Which Art Subjects are Essential for my Admission?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis autem.</p>
                   </li>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>At vero eos iusto odio ducimus qui?</h2>
+                    <h2>Which Social Science Subjects are Essential for my Admission?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
@@ -472,7 +472,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>There are many variations of passages but the majority?</h2>
+                    <h2>Which Course do I Study in University?</h2>
                     <p>Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda, incidunt officiis eaque iste minima autem.</p>
@@ -488,7 +488,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>We denounce with righteous?</h2>
+                    <h2>Which School can I go?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam iste minima autem.</p>
@@ -496,7 +496,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>At vero eos iusto odio ducimus qui?</h2>
+                    <h2>What Should I do After my Examinations?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
@@ -505,14 +505,14 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>But I must explain to you how all this idea?</h2>
+                    <h2>Can I Study Abroad?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis autem.</p>
                   </li>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>Sed ut perspiciatis unde omnis?</h2>
+                    <h2>How do I Check my Waec Results?</h2>
                     <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
                       voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
@@ -520,7 +520,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>The standard chunk of Lorem Ipsum used since the 1500s?</h2>
+                    <h2>How do I Change my Course/Institution?</h2>
                     <p>Consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda excepturi aperiam animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
                       voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
@@ -528,7 +528,7 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>There are many variations of passages but the majority?</h2>
+                    <h2>Which Result can I use for Admission NECO/WAEC?</h2>
                     <p>Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis facere voluptatibus consectetur quae quasi fuga, ad corrupti libero omnis sapiente
                       non assumenda, incidunt officiis eaque iste minima autem.</p>
@@ -536,14 +536,14 @@ The tutorial really helped me</p>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>But I must explain to you how all this idea?</h2>
+                    <h2>How Much is JUPEB?</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis autem.</p>
                   </li>
                   <li>
                     <input type="checkbox" checked>
                     <i></i>
-                    <h2>perspiciatis unde omnis?</h2>
+                    <h2>How Much is WAEC/NECO/GCE?</h2>
                     <p>Sit amet consectetur adipisicing elit. Voluptates amet earum velit nobis aliquam
                       laboriosam nihil debitis animi vitae eos nisi laudantium. Tempore reiciendis ipsam culpa, qui
                       voluptates eveniet, incidunt officiis eaque iste minima autem.</p>
