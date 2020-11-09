@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\File;
          3 => 'Third',
      ];
      if($term){
-         return $terms[$term];
-     }
+         return  array_key_exists($term , $terms) ?  $terms[$term] :  null;
+    }
      return $terms;
  }
 
@@ -33,7 +33,7 @@ use Illuminate\Support\Facades\File;
         7 =>'A Level'
     ];
     if($level){
-        return $levels[$level];
+       return  array_key_exists($level , $levels) ?  $levels[$level] :  null;
     }
     return $levels;
 }
