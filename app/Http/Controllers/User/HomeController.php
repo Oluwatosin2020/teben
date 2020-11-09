@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Bank;
 use App\Comment;
@@ -13,6 +13,8 @@ use App\PayReceipt;
 use Carbon\Carbon;
 use App\Invest;
 use App\Coupon;
+use App\Helpers\AppConstants;
+use App\Http\Controllers\Controller;
 use App\Media;
 use Exception;
 use Illuminate\Http\Request;
@@ -43,6 +45,59 @@ class HomeController extends Controller
     {
         // $this->middleware(['auth','verified']);
     }
+
+
+    public function complete_profile(Request $request){
+        
+        $user = auth()->user();
+        $currentStatus = getUserProfileStatuses($user , true);
+
+        if(is_bool($currentStatus) && $currentStatus == true){
+            return redirect()->route("home");
+        }
+
+        if($request->getMethod() == "GET"){
+            return view("user.profile.complete" , compact("currentStatus" , "user"));
+        }
+
+        if($request->status_key == "role"){
+            $data = $request->validate([
+                "role" => "required|string",
+            ]);
+            switch($data["role"]){
+                case "0": $data["role"] = AppConstants::DEFAULT_USER_TYPE; break;
+                case "1": $data["role"] = AppConstants::PARENT_USER_TYPE; break;
+                case "2": $data["role"] = AppConstants::TEACHER_USER_TYPE; break;
+            }
+            $user->update($data);
+        }
+
+       return redirect()->route("home");
+
+    }
+
+
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        $user = auth()->user();
+        // $this->checkRequest();
+        return view('user.dashboard',compact('activeReq','completeReq','pendingReq' , 'user'));
+    }
+
+
+    public function books()
+    {
+        $user = auth()->user();
+        // $this->checkRequest();
+        return view('user.dashboard',compact('activeReq','completeReq','pendingReq' , 'user'));
+    }
+
 
 
 

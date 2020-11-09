@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Helpers\AppConstants;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -48,30 +49,16 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        Validator::make($data, [
-            'role' => ['required', 'string', 'max:255', 'in:Student,Parent,Agent'],
-        ]);
-        if($data['role'] == 'Student'){
-            return Validator::make($data, [
-                'name' => ['required', 'string', 'max:255'],
-                'email' => ['nullable', 'string', 'email', 'max:255', 'unique:users'],
-                'username' => ['required', 'string', 'max:255', 'unique:users'],
-                'role' => ['required', 'string', 'max:255', 'in:Student,Parent,Agent'],
-                'password' => ['required', 'string', 'min:8', 'confirmed'],
-            ]);
-        }
+        // Validator::make($data, [
+        //     'role' => ['required', 'string', 'max:255', 'in:Student,Parent,Agent'],
+        // ]);
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['nullable', 'string', 'email', 'max:255', 'unique:users'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
-            'role' => ['required', 'string', 'max:255', 'in:Student,Parent,Agent'],
-            'address' => ['required', 'string', 'max:255'],
-            'state' => ['required', 'string', 'max:255'],
-            'lga' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -83,20 +70,15 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
             'username' => $data['username'],
             'uuid' => $this->UUid(),
-            'phone' => $data['phone'],
-            'lga' => $data['lga'],
-            'state' => $data['state'],
-            'address' => $data['address'],
-            'role' => $data['role'],
+            'role' => AppConstants::UNDEFINED_USER_TYPE,
             'password' => Hash::make($data['password']),
         ]);
     }
 
     public function UUid(){
-        $id = rand(10000000,999999999);
+        $id = getRandomToken(8 , true);
         $check = User::where('uuid',$id)->count();
         if($check < 1){
             return $id;

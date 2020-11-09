@@ -13,6 +13,37 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ $web_source }}/css/style-liberty.css">
+    <style>
+      .selected{
+          color: #ff8f07 !important;
+          border-width: 2px;
+          border-color: #ff8f07 !important;
+      }
+  
+      .select_role{
+          cursor: pointer;
+      }
+  
+      .w3l-login .form-inner-cont {
+      margin: 20px auto;
+      padding: 1.5rem;
+      border-radius: var(--card-curve);
+      box-shadow: var(--card-box-shadow);
+      background: #fff;
+  }
+  
+  .fs-30{
+      font-size: 30px;
+  }
+  
+  .w3l-login .w3l-form-36-mian {
+      min-height: auto;
+  }
+
+  .form-inner-cont{
+    max-width: 100% !important;
+  }
+  </style>
   </head>
   <body>
 

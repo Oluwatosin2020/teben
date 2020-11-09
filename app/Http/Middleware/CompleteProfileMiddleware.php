@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class CompleteProfileMiddleware
 {
@@ -14,13 +14,20 @@ class CompleteProfileMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        $user = Auth::User();
-        if($user->gender == null){
-            return redirect('/home');
+        if(auth('web')->check()){
+            $user = auth('web')->user();
+            if(is_bool(getUserProfileStatuses($user , true)) == true){
+                return $next($request);
+            }
+            else{
+                return redirect()->route("user.profile.complete")->with('error_msg','Kindly complete your profile to proceed!');
+            }
         }
-        // dd($user->gender);
-        return $next($request);
+        else{
+            return redirect('/login');
+        }
+        return redirect('/');
     }
 }

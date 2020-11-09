@@ -135,4 +135,14 @@
       });
     </script>
     <!-- gallery lightbox -->
+
+
+    <script>
+      $(".select_role").on("click" , function(){
+          $(".select_role").removeClass("selected");
+          $(this).addClass("selected");
+          $("#roleInput").val($(this).attr("data-role"));
+          $("#select_role_form").trigger("submit");
+      });
+  </script>
   

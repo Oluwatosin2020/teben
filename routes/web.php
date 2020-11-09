@@ -1,5 +1,6 @@
 <?php
 
+
 if(version_compare(PHP_VERSION, '7.2.0', '>=')) {
     error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 }
@@ -45,12 +46,30 @@ Route::namespace('Account')->prefix('account')->as('account.')->group(function()
     });
 });
 
-
 Auth::routes(['verify' => true]);
 
-Route::get('/send/email', 'HomeController@mail');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::namespace('User')->middleware("auth")->group(function(){
+    Route::match(["get" , "post"],'/complete-profile', 'HomeController@complete_profile')->name("profile.complete");
+
+
+    Route::middleware("complete_profile")->group(function(){
+        Route::get('/home', 'HomeController@index')->name('home');
+
+        Route::prefix('user')->as('user.')->group(function(){
+
+            Route::prefix('media')->as('media.')->group(function(){
+                Route::get('/index/{type}', 'MediaController@index')->name('index');
+                Route::post('/download', 'MediaController@download')->name('download');
+            });
+        });
+    });
+});
+
+
+
+// Route::get('/send/email', 'HomeController@mail');
+
 
 
 
@@ -163,7 +182,7 @@ Route::group(['middleware'=> ['admin']],function(){
 
 Route::get('/m', function() {
     $output = [];
-    \Artisan::call('migrate', $output);
+    \Illuminate\Support\Facades\Artisan::call('migrate', $output);
     dd($output);
 });
 

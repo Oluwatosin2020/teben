@@ -33,13 +33,29 @@
 							<li class="nav-item {{ $activePage == "contact_us" ? 'active' : ''  }}">
 								<a class="nav-link" href="{{ route('contact_us') }}">Contact Us</a>
 							</li>
-							<li class="nav-item {{ $activePage == "login" ? 'active' : ''  }}">
-								<a class="nav-link" href="{{ route('login') }}">Login</a>
-							</li>
+							
+							@if(!auth()->check())
+								<li class="nav-item {{ $activePage == "login" ? 'active' : ''  }}">
+									<a class="nav-link" href="{{ route('login') }}">Login</a>
+								</li>
+							@else
+								<li class="nav-item dropdown @@dropdown-active">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+										aria-expanded="false">
+										{{ auth()->user()->name }}
+									</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item" href="#" onclick=" return $('#logout_form').trigger('submit'); ">Log out</a>
+									</div>
+								</li>
+								<form action="{{ route("logout") }}" method="post" class="d-none" id="logout_form">@csrf</form>
+							@endif
 						</ul>
-						<div class="form-inline ml-lg-3">
-							<a href="{{ route('register') }}" class="btn btn-primary theme-button">Join Us</a>
-						</div>
+						@if(!auth()->check())
+							<div class="form-inline ml-lg-3">
+								<a href="{{ route('register') }}" class="btn btn-primary theme-button">Join Us</a>
+							</div>
+						@endif
 					</div>
 				</nav>
 			</div>

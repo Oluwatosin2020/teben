@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\AppConstants;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
@@ -45,7 +46,7 @@ use Illuminate\Support\Facades\File;
  * @return String token
  */
 function getRandomToken($length , $typeInt = false){
-    if($typeInt == true){
+    if($typeInt){
         $token = Str::substr(rand(1000000000,9999999999), 0, $length) ;
     }
     $token = "";
@@ -244,4 +245,79 @@ function getFileType(String $type)
         {
             return $dtF->diff($dtT)->format('%s seconds');
         }
+    }
+
+
+      
+    function getUserProfileStatuses($user = null ,$current = false){
+        if(empty($user)){
+            $user = auth()->user();
+        }
+
+        $user_stats = [
+            // "user_profile" => [
+            //     "key" => "user_profile",
+            //     "current" => null,
+            //     "status" => !empty($user->gender) && 
+            //                 !empty($user->country_id) && 
+            //                 !empty($user->state_id) && 
+            //                 !empty($user->city_id) && 
+            //                 // !empty($user->lga_id) && 
+            //                 // !empty($user->address) && 
+            //                 !empty($user->phone) ,
+            //     "title" => "Complete Profile",
+            // ],
+
+            // "next_kin" => [
+            //     "key" => "next_kin",
+            //     "current" => null,
+            //     "status" => !empty($user->kin),
+            //     "title" => "Next of Kin",
+            // ],
+        ];
+
+        $company_stats = [
+            "company_profile" => [
+                "key" => "company_profile",
+                "current" => null,
+                "status" => !empty($user->company),
+                "title" => "Company Profile",
+            ],
+        ];
+
+        $default_stats = [
+            // "email" => [
+            //     "key" => "email",
+            //     "current" => null,
+            //     "status" => !empty($user->email_verified_at),
+            //     "title" => "Verify Email Address",
+            // ],
+            "role" => [
+                "key" => "role",
+                "current" => null,
+                "status" => ucfirst($user->role) != ucfirst(AppConstants::UNDEFINED_USER_TYPE),
+                "title" => "Select Your Role",
+            ],
+        ];
+
+
+        $statuses = array_merge(
+            $default_stats,
+            $user->role ==  AppConstants::DEFAULT_USER_TYPE ? $user_stats : [],
+            // $user->role ==  AppConstants::COMPANY_USER_TYPE ? $company_stats : [],
+        );
+
+
+       if($current){
+            foreach($statuses as $key => $value){
+                if($value["status"] == false){
+                    return $statuses[$key];
+                }
+            }
+            $user->status = 1;
+            $user->save();
+            return true;
+       }
+
+        return $statuses;
     }
