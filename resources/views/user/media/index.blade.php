@@ -120,7 +120,7 @@
                                             </div>
                                             <div class="col-auto fr">
                                                 <form action="{{ route('user.media.download') }}" method="post">@csrf
-                                                    <input type="hidden" name="media_id" value="{{$media->id}}" required>
+                                                    <input type="hidden" name="media_id" value="{{$medium->id}}" required>
                                                     <button type="submit" class="btn btn-sm btn-success text-white" >Download</button>
                                                 </form>
                                             </div>
