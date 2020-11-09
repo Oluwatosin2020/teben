@@ -27,7 +27,9 @@ class MediaController extends Controller
         $builder = Media::where('status','Visible')->where("attachment_type" , $type == "books" ? "Document" : "Video")->orderby('title','asc');
 
         if(!empty($key = $request['keyword'])){
-            $builder = $builder->where('title' , 'like' , "%$key%");
+            $builder = $builder->where('title' , 'like' , "%$key%")->orWhereHas('subject' , function($query) use ($key){
+                $query->where('name' , 'like' , "%$key%");
+            });
         }
         if(!empty($key = $request['class'])){
             $builder = $builder->where('klass_id' , 'like' , "%$key%");
