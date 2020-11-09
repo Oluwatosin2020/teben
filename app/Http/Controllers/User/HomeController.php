@@ -91,15 +91,6 @@ class HomeController extends Controller
     }
 
 
-    public function books()
-    {
-        $user = auth()->user();
-        // $this->checkRequest();
-        return view('user.dashboard',compact('user'));
-    }
-
-
-
 
     public function mynotifications($last = null){
         $user = Auth::user();

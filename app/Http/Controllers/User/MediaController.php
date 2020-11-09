@@ -24,7 +24,6 @@ class MediaController extends Controller
 
     public function index(Request $request , $type = "")
     {
-        $requestData = $request->all();
         $builder = Media::where('status','Visible')->where("attachment_type" , $type == "books" ? "Document" : "Video")->orderby('title','asc');
 
         if(!empty($key = $request['keyword'])){
@@ -43,6 +42,11 @@ class MediaController extends Controller
         $url = route("user.media.index" , $type);
         $classes = Klass::orderby("name")->get();
         $terms = getTerms();
+        $requestData = [
+            "keyword" => $request['keyword'],
+            "class" => $request['class'],
+            "term" => $request['term'],
+        ];
         return view('user.media.index',compact('user','media' , 'title' , 'url' , 'requestData' , 'classes' , 'terms'));
     }
 
