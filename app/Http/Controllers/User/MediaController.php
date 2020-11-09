@@ -74,6 +74,7 @@ class MediaController extends Controller
                     'type' => 'Debit',
                     'amount' => $amt,
                     'status' => 'Completed',
+                    'media_id' => $media->id,
                 ]);
 
                 //send notification to user
