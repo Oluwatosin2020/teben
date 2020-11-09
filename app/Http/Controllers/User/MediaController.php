@@ -56,7 +56,7 @@ class MediaController extends Controller
             'media_id' => 'required',
         ]);
 
-        $media = Media::findorfail(decrypt($data['media_id']));
+        $media = Media::findorfail($data['media_id']);
 
         $name = $media->title;
         $filename = $media->getAttachment();
