@@ -17,7 +17,7 @@
     <div class="container">
       <div class="row">
           <div class="offset-md-2 col-md-8">
-            <div class="form-inner-cont">
+            <div class="form-inner-cont mx-100">
                 <div class="mt-md-5">
                     <div class="row">
                         <div class="col-md-6 mb-4 select_role">

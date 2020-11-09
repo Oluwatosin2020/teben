@@ -87,7 +87,7 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         // $this->checkRequest();
-        return view('user.dashboard',compact('activeReq','completeReq','pendingReq' , 'user'));
+        return view('user.dashboard',compact('user'));
     }
 
 
@@ -95,7 +95,7 @@ class HomeController extends Controller
     {
         $user = auth()->user();
         // $this->checkRequest();
-        return view('user.dashboard',compact('activeReq','completeReq','pendingReq' , 'user'));
+        return view('user.dashboard',compact('user'));
     }
 
 

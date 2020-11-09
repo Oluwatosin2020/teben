@@ -40,7 +40,7 @@
       min-height: auto;
   }
 
-  .form-inner-cont{
+  .mx-100{
     max-width: 100% !important;
   }
   </style>
