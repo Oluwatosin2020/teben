@@ -144,5 +144,10 @@
           $("#roleInput").val($(this).attr("data-role"));
           $("#select_role_form").trigger("submit");
       });
+
+      $(".downloading_media").on("submit" , function(){
+          $(".modal").modal('hide');
+          $("#download_media_progress").modal('show');
+      });
   </script>
   
