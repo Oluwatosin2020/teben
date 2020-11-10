@@ -56,6 +56,10 @@ class HomeController extends Controller
             return redirect()->route("home");
         }
 
+        dump($currentStatus);
+
+        dd($request->getMethod());
+
         if($request->getMethod() == "GET"){
             return view("user.profile.complete" , compact("currentStatus" , "user"));
         }
