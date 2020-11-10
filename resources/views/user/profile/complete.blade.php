@@ -14,7 +14,7 @@
                 <h6>Complete your profile</h6>
                 <div class="form-area mt-2 mt-md-5">
                     @if($currentStatus["key"] == "role")
-                        <form action="{{ route("user.profile.complete") }}" method="POST" id="select_role_form">@csrf
+                        <form action="{{ route("user.profile.complete.update") }}" method="POST" id="select_role_form">@csrf
                             <input type="hidden" name="status_key" required value="{{ $currentStatus["key"] }}">
                             <input type="hidden" name="role" required id="roleInput">
                             <div class="row">
