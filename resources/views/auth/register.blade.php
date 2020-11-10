@@ -24,7 +24,7 @@
 
                     <div class="form-group">
                         <label>Username</label>
-                        <input class="form-control" type="text" name="username" placeholder="Enter username" value="{{ old('username') }}" required aria-required="true">
+                        <input class="form-control" type="text" name="username" placeholder="Enter username" maxlength="20" value="{{ old('username') }}" required aria-required="true">
                         @error('username')
                             <span class="form-input-error" role="alert">
                                 <strong>{{ $message }}</strong>

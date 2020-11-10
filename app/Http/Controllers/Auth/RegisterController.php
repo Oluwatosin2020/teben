@@ -53,8 +53,8 @@ class RegisterController extends Controller
         //     'role' => ['required', 'string', 'max:255', 'in:Student,Parent,Agent'],
         // ]);
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'max:255', 'unique:users'],
+            'name' => ['required', 'string', 'max:50'],
+            'username' => ['required', 'string', 'max:20', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
