@@ -32,6 +32,12 @@
                                 {{ Session::get('error') }}
                             </div>
                         @endif
+                        @if(Session::has('error_msg'))
+                            <div class="alert alert-danger  btn-block">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                                {{ Session::get('error_msg') }}
+                            </div>
+                        @endif
                         @if(Session::has('atg_error'))
                         <div class="alert alert-danger  btn-block">
                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -116,6 +122,7 @@
                                 <hr>
                         </div>
 
+                        @if ($status)
                         <div class="col-md-6 mb-4 select_role">
                             <a href="{{ route('account.media.index' , "books") }}">
                                 <div class="card p-4">
@@ -137,6 +144,36 @@
                                 </div>
                             </a>
                         </div>
+
+                        @else
+
+                            <div class="col-md-6">
+                                <h4 class="mt-3">Pay with coupon</h4>
+                                <p class="mb-2 mt-2">
+                                    Contact any of our agents or call our customer care line to get your coupon code and fill it in below
+                                    or call +234 703 396 4406 for assitance.
+                                </p>
+                                <div class="text-center">
+                                    <form action="{{ route('couponRecharge') }}" method="post" enctype="multipart/form-data"> {{csrf_field()}}
+                                        <input type="text" class="form-control" name="code" required placeholder="Enter coupon code">
+                                        <input type="hidden" class="form-control" name="school_account_id" value="{{ $account->id }}" required >
+                                        <button type="submit" class="btn btn-success mt-2">Proceed</button>
+                                    </form>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <h4 class="mt-3">Pay with recharge card</h4>
+                                <div class="mb-2 mt-2">
+                                    <p>You can recharge your account with an MTN recharge card. Please make sure you have your airtime ready!</p>
+                                    <button class="btn btn-success mt-5" onclick="callAtgPay()">Pay</button>
+                                </div>
+                            </div>
+
+                    @endif
+
+                        
 
                     </div>
                 </div>

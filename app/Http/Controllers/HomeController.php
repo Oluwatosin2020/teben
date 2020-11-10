@@ -231,12 +231,12 @@ class HomeController extends Controller
         DB::beginTransaction();
         try{
             $data = $request->validate([
-                'code' => 'required',
+                'code' => 'required|string',
                 'school_account_id' => 'nullable|exists:school_accounts,id',
             ]);
 
             $coupon = Coupon::where('code',$data['code'])->first();
-    // Check if code is valid
+            // Check if code is valid
             if(empty($coupon)){
                 Session::flash('error_msg','Coupon is invalid!');
                 return redirect()->back();

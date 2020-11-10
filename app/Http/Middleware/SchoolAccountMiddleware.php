@@ -20,7 +20,11 @@ class SchoolAccountMiddleware
             return redirect()->route('account.login');
         }
         $base = new BaseController();
-        if($request->getUri() != route("account.dashboard") && !$base->isActive()) { 
+        if(!in_array($request->getUri() , [
+            route("account.dashboard"),
+            route("account.atg_callback"),
+            route("account.logout"),
+        ]) && !$base->isActive()) { 
             return redirect()->route("account.dashboard"); 
         }
 
