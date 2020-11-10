@@ -50,7 +50,7 @@ Auth::routes(['verify' => true]);
 
 
 Route::namespace('User')->middleware("auth")->group(function(){
-    Route::match(["get" , "post"],'/complete-profile', 'HomeController@complete_profile')->name("profile.complete");
+    Route::match(["get" , "post"],'/complete-profile', 'HomeController@complete_profile')->name("user.profile.complete");
 
 
     Route::middleware("complete_profile")->group(function(){
