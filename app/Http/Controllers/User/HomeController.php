@@ -49,8 +49,6 @@ class HomeController extends Controller
 
     public function complete_profile(Request $request){
 
-        dd($request->all());
-        
         $user = auth()->user();
         $currentStatus = getUserProfileStatuses($user , true);
 
