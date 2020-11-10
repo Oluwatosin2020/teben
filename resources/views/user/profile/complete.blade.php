@@ -9,7 +9,7 @@
       </div>
       <div class="row">
           <div class="offset-md-2 col-md-8">
-            <div class="form-inner-cont">
+            <div class="form-inner-cont mx-100">
                 <h3>You`re almost done</h3>
                 <h6>Complete your profile</h6>
                 <div class="form-area mt-2 mt-md-5">
