@@ -43,6 +43,33 @@
   .mx-100{
     max-width: 100% !important;
   }
+
+  .media_playlist{
+    max-height: 90vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    
+  }
+
+  /* width */
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
   </style>
   </head>
   <body>

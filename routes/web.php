@@ -40,9 +40,13 @@ Route::namespace('Account')->prefix('account')->as('account.')->group(function()
     Route::middleware('school_account')->group(function(){
         Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
         Route::post('logout', 'HomeController@logout')->name('logout');
-        Route::post('download', 'HomeController@download')->name('download');
         Route::post('atg-callback', 'HomeController@atg_callback')->name('atg_callback');
-        Route::get('/watch-video/{filename}', 'HomeController@watchVideoAttachment')->name('watch_video_attachment');
+
+        Route::prefix('media')->as('media.')->group(function(){
+            Route::get('/index/{type}', 'MediaController@index')->name('index');
+            Route::post('download', 'MediaController@download')->name('download');
+            Route::get('/watch/{filename}', 'MediaController@watchVideoAttachment')->name('watch.video');
+        });
     });
 });
 
@@ -135,22 +139,22 @@ Route::post('/transaction-response/{id}', 'HomeController@tranResponse')->name('
 
 Route::get('/tre', 'HomeController@transReceipts')->name('transReceipts');
 
-Route::group(['middleware'=> ['admin']],function(){
-    Route::get('/admin', 'AdminController@index')->name('admin');
+Route::prefix('admin')->middleware("admin")->group(function(){
+    Route::get('/', 'Admin\AdminController@index')->name('admin');
 
-    Route::get('/admin/users', 'AdminController@users')->name('users');
-    Route::post('/admin/users/update/{user}', 'AdminController@update_user')->name('update_user');
+    Route::get('/users', 'AdminController@users')->name('users');
+    Route::post('/users/update/{user}', 'AdminController@update_user')->name('update_user');
 
-    Route::get('/admin/requests', 'AdminController@requests')->name('requests');
-    Route::get('/admin/deposits', 'AdminController@deposits')->name('deposits');
-    Route::get('/admin/withdrawals', 'AdminController@withdrawals')->name('withdrawals');
+    Route::get('/requests', 'AdminController@requests')->name('requests');
+    Route::get('/deposits', 'AdminController@deposits')->name('deposits');
+    Route::get('/withdrawals', 'AdminController@withdrawals')->name('withdrawals');
 
-    Route::get('/admin/teacher-applications', 'TeacherController@teachersapply')->name('teacherapply');
-    Route::get('/admin/user-info/{id}', 'AdminController@userinfo')->name('userinfo');
-    Route::post('/admin/teacher-status/{id}', 'TeacherController@teacherstatus')->name('agentstatus');
-    Route::post('/admin/reject-teacher/{id}', 'TeacherController@rejectteacher')->name('rejectteacher');
+    Route::get('/teacher-applications', 'TeacherController@teachersapply')->name('teacherapply');
+    Route::get('/user-info/{id}', 'AdminController@userinfo')->name('userinfo');
+    Route::post('/teacher-status/{id}', 'TeacherController@teacherstatus')->name('agentstatus');
+    Route::post('/reject-teacher/{id}', 'TeacherController@rejectteacher')->name('rejectteacher');
 
-    Route::get('/admin/payment-receipts', 'AdminController@receipts')->name('receipts');
+    Route::get('/payment-receipts', 'AdminController@receipts')->name('receipts');
     Route::post('/receipt-deposit/{id}', 'AdminController@receiptdeposit')->name('receiptdeposit');
     Route::post('/manual-deposit', 'AdminController@manualdeposit')->name('manualdeposit');
 
@@ -163,13 +167,13 @@ Route::group(['middleware'=> ['admin']],function(){
 
     Route::get('/agents', 'AgentController@index')->name('agents');
     Route::get('/agent-coupons/{id}', 'AgentController@agent_coupons')->name('agent_coupons');
-    Route::get('/admin/agents-applications', 'AgentController@agentsapply')->name('agentsapply');
+    Route::get('/agents-applications', 'AgentController@agentsapply')->name('agentsapply');
 
     Route::resource('/media', 'MediaController');
     Route::get('/watch-video/{filename}', 'MediaController@watchVideoAttachment')->name('watch_video_attachment');
     Route::post('/download-attachment', 'MediaController@downloadAttachment')->name('download_attachment');
 
-    Route::post('/admin/agent-status/{id}', 'AgentController@agentstatus')->name('agentstatus');
+    Route::post('/agent-status/{id}', 'AgentController@agentstatus')->name('agentstatus');
 
     Route::namespace('Admin')->prefix('admin')->as('admin.')->group(function(){
         Route::resource('schools', 'SchoolController');

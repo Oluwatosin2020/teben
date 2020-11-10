@@ -180,9 +180,9 @@
                                                 <div class="text-center mb-3">
                                                     The withdrawal request would be processed and the withdrawn amount would be sent to:
                                                 </div>
-                                                <p>Bank Name : <span class="fr">{{$user->bank->bank_name}}</span></p> 
-                                                <p>Account Number : <span class="fr">{{$user->bank->account_no}}</span></p> 
-                                                <p>Account Name : <span class="fr">{{$user->bank->account_name}}</span></p>
+                                                <p>Bank Name : <span class="fr">{{ optional($user->bank)->bank_name}}</span></p> 
+                                                <p>Account Number : <span class="fr">{{ optional($user->bank)->account_no}}</span></p> 
+                                                <p>Account Name : <span class="fr">{{ optional($user->bank)->account_name}}</span></p>
                                             <form action="{{ route('withdraw') }}" method="post">{{csrf_field()}}
                                                 <input type="text" name="amonut" value="{{ $bals['Abal'] }}"disabled required class="form-control"> 
                                             </div>

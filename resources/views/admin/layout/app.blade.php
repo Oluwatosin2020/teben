@@ -1,7 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="en">
-@php($user = Auth::User())
-@php($states = \App\Http\Controllers\Controller::states())
+@php($user = auth()->User())
 
 @php($mynots = App\Notification::where('user_id',$user->id))
 @php($allnots = $mynots->orderby('created_at','desc')->get())
@@ -357,7 +356,7 @@
                                 <div class="s-sw-title">
                                     <select type="text" name="state" id="comp_profile-state" class="form-control" placeholder="Lagos"  style="height: 45px" required >
                                        <option value="" disabled selected>Select State</option>
-                                       @foreach($states as $state)
+                                       @foreach(getStates() as $state)
                                             <option value="{{$state->name}}" {{$user->state == $state->name ? 'selected' : ''}} >{{$state->name}}</option>
                                         @endforeach
                                     </select>

@@ -6,7 +6,7 @@
 <section class="w3l-skill-breadcrum">
     <div class="breadcrum">
       <div class="container">
-        <p><a href="index.html">Home</a> &nbsp; / &nbsp; Courses</p>
+        <p><a href="#">Dashboard</a></p>
       </div>
     </div>
   </section>
