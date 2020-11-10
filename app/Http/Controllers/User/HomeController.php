@@ -69,6 +69,7 @@ class HomeController extends Controller
                 case "1": $data["role"] = AppConstants::PARENT_USER_TYPE; break;
                 case "2": $data["role"] = AppConstants::TEACHER_USER_TYPE; break;
             }
+            dd($data);
             $user->update($data);
         }
 
